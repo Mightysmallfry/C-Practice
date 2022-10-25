@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 #include <iostream>
 
@@ -10,6 +11,7 @@ public:
 		item_name = name;
 		item_size = size;
 		item_weight = weight;
+		num_of_items++;
 	}
 
 
@@ -18,7 +20,7 @@ public:
 	int getSize();
 	float getWeight();
 
-
+	static int getNumOfItem();
 	void printItem();
 
 private:
@@ -27,5 +29,6 @@ private:
 	int item_size;
 	float item_weight;
 
+	static int num_of_items;
 
 };

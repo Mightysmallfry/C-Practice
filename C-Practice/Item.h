@@ -1,26 +1,26 @@
 #pragma once
 
-#include <string>
 #include <iostream>
+#include <string>
 
 class Item
 {
 public:
+    Item() {};
     Item(const std::string& name, const int size, const float weight);
 
-
     // GETTERS
-    std::string GetName();
-    int GetSize() const;
-    float GetWeight() const;
+    std::string getName();
+    int getSize() const;
+    float getWeight() const;
 
-    static int GetNumOfItem();
-    void PrintItem();
+    static int getNumOfItem();
+    void toString();
 
 private:
-    std::string item_name;
-    int item_size;
-    float item_weight;
+    std::string item_name{"Bucket"};
+    int item_size{2};
+    float item_weight{3};
 
     static int num_of_items;
 };

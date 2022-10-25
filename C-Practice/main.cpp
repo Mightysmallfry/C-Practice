@@ -3,16 +3,27 @@
 //#include <vector>
 
 #include "Item.h"
+#include "Weapon.h"
 #include "Creature.h"
+#include "Enemy.h"
 
 
 int main()
 {
-    Creature playerEntity("Player", 5, 3, 2, 4);
+    //Creature neutralEntity("T-Rex", 10, 3, 5, 4);
+    Creature neutralEntity;
+
+    neutralEntity.ToString();
 
 
-    Item itemEntity("Bucket", 2, 3);
 
+    //Item itemEntity; //Default Constructor
+    //Item itemEntity("Ball", 2, 3);
 
-    itemEntity.PrintItem();
+    //Weapon weaponEntity; 
+    //Weapon weaponEntity("Dagger", 3,2,5,"Piercing");
+
+    //itemEntity.toString();
+    //weaponEntity.toString();
+
 }

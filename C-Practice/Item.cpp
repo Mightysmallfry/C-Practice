@@ -10,30 +10,30 @@ Item::Item(const std::string& name, const int size, const float weight)
     num_of_items++;
 }
 
-std::string Item::GetName()
+std::string Item::getName()
 {
     return item_name;
 }
 
-int Item::GetSize() const
+int Item::getSize() const
 {
     return item_size;
 }
 
-float Item::GetWeight() const
+float Item::getWeight() const
 {
     return item_weight;
 }
 
-int Item::GetNumOfItem()
+int Item::getNumOfItem()
 {
     return num_of_items;
 }
 
-void Item::PrintItem()
+void Item::toString()
 {
-    std::cout << "Name: " << GetName() << std::endl;
-    std::cout << "Size: " << GetSize() << std::endl;
-    std::cout << "Weight: " << GetWeight() << std::endl;
-    std::cout << "NumOfItem: " << GetNumOfItem() << std::endl;
+    std::cout << "Name: " << getName() << std::endl;
+    std::cout << "Size: " << getSize() << std::endl;
+    std::cout << "Weight: " << getWeight() << std::endl;
+    std::cout << "NumOfItem: " << getNumOfItem() << std::endl;
 }

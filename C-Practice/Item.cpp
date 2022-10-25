@@ -1,33 +1,39 @@
 #include "Item.h"
 
+int Item::num_of_items = 0;
 
-
-
-
-std::string Item::getName()
+Item::Item(const std::string& name, const int size, const float weight)
 {
-	return item_name;
+    item_name = name;
+    item_size = size;
+    item_weight = weight;
+    num_of_items++;
 }
 
-int Item::getSize()
+std::string Item::GetName()
 {
-	return item_size;
+    return item_name;
 }
 
-float Item::getWeight()
+int Item::GetSize() const
 {
-	return item_weight;
+    return item_size;
 }
 
-int Item::getNumOfItem()
+float Item::GetWeight() const
 {
-	return num_of_items;
+    return item_weight;
 }
 
-void Item::printItem()
+int Item::GetNumOfItem()
 {
-	std::cout << "Name: " << getName() << std::endl;
-	std::cout << "Size: " << getSize() << std::endl;
-	std::cout << "Weight: " << getWeight() << std::endl;
-	std::cout << "NumOfItem: " << getNumOfItem() << std::endl;
+    return num_of_items;
+}
+
+void Item::PrintItem()
+{
+    std::cout << "Name: " << GetName() << std::endl;
+    std::cout << "Size: " << GetSize() << std::endl;
+    std::cout << "Weight: " << GetWeight() << std::endl;
+    std::cout << "NumOfItem: " << GetNumOfItem() << std::endl;
 }

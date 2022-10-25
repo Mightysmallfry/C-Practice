@@ -6,29 +6,21 @@
 class Item
 {
 public:
-
-	Item(std::string name, int size, float weight){
-		item_name = name;
-		item_size = size;
-		item_weight = weight;
-		num_of_items++;
-	}
+    Item(const std::string& name, const int size, const float weight);
 
 
-	// GETTERS
-	std::string getName();
-	int getSize();
-	float getWeight();
+    // GETTERS
+    std::string GetName();
+    int GetSize() const;
+    float GetWeight() const;
 
-	static int getNumOfItem();
-	void printItem();
+    static int GetNumOfItem();
+    void PrintItem();
 
 private:
+    std::string item_name;
+    int item_size;
+    float item_weight;
 
-	std::string item_name;
-	int item_size;
-	float item_weight;
-
-	static int num_of_items;
-
+    static int num_of_items;
 };

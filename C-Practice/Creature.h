@@ -14,14 +14,14 @@ public:
 		cha = charisma;
 	}
 
-	std::string getName();
-	int getStrength();
-	int getDexterity();
-	int getConstitution();
-	int getCharisma();
+	std::string GetName();
+	int GetStrength() const;
+	int GetDexterity() const;
+	int GetConstitution() const;
+	int GetCharisma() const;
 
-	int getInventorySize(int strength);
-	int getMaxWeight(int strength, int constitution);
+    static int GetInventorySize(int strength);
+    static int GetMaxWeight(int strength, int constitution);
 
 
 

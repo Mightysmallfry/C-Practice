@@ -1,37 +1,37 @@
 #include "Creature.h"
 
-std::string Creature::getName()
+std::string Creature::GetName()
 {
     return name;
 }
 
-int Creature::getStrength()
+int Creature::GetStrength() const
 {
     return str;
 }
 
-int Creature::getDexterity()
+int Creature::GetDexterity() const
 {
     return dex;
 }
 
-int Creature::getConstitution()
+int Creature::GetConstitution() const
 {
     return con;
 }
 
-int Creature::getCharisma()
+int Creature::GetCharisma() const
 {
     return cha;
 }
 
-int Creature::getInventorySize(int strength)
+int Creature::GetInventorySize(const int strength)
 {
     int inventory_size = 1 + strength;
     return inventory_size;
 }
 
-int Creature::getMaxWeight(int strength, int constitution)
+int Creature::GetMaxWeight(const int strength, const int constitution)
 {
     int weight_constant = strength * constitution;
     int max_weight = 5 + weight_constant;   

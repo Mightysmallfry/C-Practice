@@ -23,8 +23,8 @@ public:
 	int GetHpMaximum();
 	int GetHpCurrent();
 
-	void setHpMaximum(int newMaxHp); //different calculation for enemies, npcs and players
-	void setHpCurrent(int newHp);
+	void SetHpMaximum(int newMaxHp); //different calculation for enemies, npcs and players
+	void SetHpCurrent(int newHp);
 
 
 	bool GetIsDead(int curHp); //check if creature is dead

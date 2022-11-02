@@ -12,5 +12,6 @@ int Dinosaur::AttackTail()
 
 int Dinosaur::DamageBlock()
 {
-    return GetConstitution();
+    int armor = GetConstitution() * 3;
+    return armor;
 }

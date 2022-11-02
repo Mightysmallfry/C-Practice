@@ -35,12 +35,12 @@ int Creature::GetHpCurrent()
     return hp_current;
 }
 
-void Creature::setHpMaximum(int newMaxHp)
+void Creature::SetHpMaximum(int newMaxHp)
 {
     hp_maximum = newMaxHp;
 }
 
-void Creature::setHpCurrent(int newHp)
+void Creature::SetHpCurrent(int newHp)
 {
     hp_current = newHp;
 }
@@ -70,8 +70,8 @@ int Creature::GetMaxWeight(const int strength, const int constitution)
 void Creature::ToString()
 {
     std::cout << "Name: " << GetName() << std::endl;
-    std::cout << "Hp: " << GetHpCurrent() << "/" << GetHpMaximum() << std::endl; // will print 0 if alive
-    std::cout << "Alive: " << GetIsDead(GetHpCurrent()) << std::endl;
+    std::cout << "Hp: " << GetHpCurrent() << "/" << GetHpMaximum() << std::endl; 
+    std::cout << "Alive: " << GetIsDead(GetHpCurrent()) << std::endl;// will print 0 if alive
     std::cout << "Strength: " << GetStrength() << std::endl;
     std::cout << "Dexterity: " << GetDexterity() << std::endl;
     std::cout << "Consitution: " << GetConstitution() << std::endl;

@@ -2,7 +2,7 @@
 
 void Conflict::BeginFight(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi)
 {
-	printCombat();
+	printCombat(dinosaurPlayer, dinosaurAi);
 	while (bool running = true) 
 	{
 
@@ -27,7 +27,7 @@ void Conflict::BeginFight(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi)
 
 
 			// ===== Check if Game Over =====
-			printCombat();
+			printCombat(dinosaurPlayer, dinosaurAi);
 
 			if (dinosaurPlayer.GetIsDead(dinosaurPlayer.GetHpCurrent()) || dinosaurAi.GetIsDead(dinosaurAi.GetHpCurrent())) {
 
@@ -59,7 +59,7 @@ void Conflict::BeginFight(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi)
 
 
 			// ===== Check if Game Over =====
-			printCombat();
+			printCombat(dinosaurPlayer, dinosaurAi);
 
 			if (dinosaurPlayer.GetIsDead(dinosaurPlayer.GetHpCurrent()) || dinosaurAi.GetIsDead(dinosaurAi.GetHpCurrent())) {
 				

@@ -19,7 +19,6 @@ public:
 	static void SetBlockDamage(int blockValue, Dinosaur& blockingDinosaur);
 
 	static void NextTurn(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi);
-
 	static void SetTurnNum(int nextTurnNum);
 	static int GetTurnNum();
 
@@ -28,6 +27,7 @@ public:
 
 
 	static void printCombat(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi);
+
 
 
 

@@ -45,7 +45,7 @@ public:
 	void ToString();
 
 
-private:
+private: 
 	std::string name{"Dog"};
 	int str{7};
 	int dex{5};

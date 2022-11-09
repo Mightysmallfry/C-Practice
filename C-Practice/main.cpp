@@ -29,16 +29,22 @@ int main()
 
 
     //std::cout << Triceratops.AttackStomp() << std::endl;
-
+    
+   
+    //=====================================================
     //TODO: Make a Class:Conflict which will handle battles between two creatures/dinosaurs
         // Must have turn based functions.
             //Find what creatures it has, find what attacks each creature has
 
     Conflict battle;
     Dinosaur Stegosaurus("Stegosaurus", 4, 5, 3, 6);
-    Dinosaur TyranousRex("T-Rex", 10, 153, 5, 4);
+    Dinosaur TyranousRex("T-Rex", 10, 3, 5, 4);
     
+
+    //std::cout << TyranousRex.GetActions(true, TyranousRex.creatureActions) << std::endl;
     battle.BeginFight(TyranousRex, Stegosaurus);
+    //======================================================
+
 
     //Item itemEntity; //Default Constructor
     //Item itemEntity("Ball", 2, 3);

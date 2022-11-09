@@ -30,16 +30,19 @@ int Dinosaur::GetActions(bool isPlayer, std::vector<std::string> actionVector)
         //std::cout << input << ":Type:" << typeid(input).name() << std::endl; //For Debugging
         
         for (int actionIndex = 0; actionIndex <= actionVector.size(); actionIndex = (actionIndex + 1)) {
+            //std::cout << actionIndex << std::endl; //For Debugging
+            
             if (input == actionVector[actionIndex]) {
-                std::cout << "Action Index: " << actionIndex << std::endl; //For Debugging
+                //std::cout << "Action Index: " << actionIndex << std::endl; //For Debugging
                 return actionIndex;
             }
-            else {
-                std::cout << "Action Index returned 0" << std::endl; //For Debugging
-                std::cout << "Vector size: " << actionVector.size() << std::endl; //For Debugging
-                return 0;
-            }
+            
+            //else {
+            //    std::cout << "Action Index returned 0" << std::endl; //For Debugging
+            //    std::cout << "Vector size: " << actionVector.size() << std::endl; //For Debugging
+            //}
         }
+
     }
     else {
         return 1;

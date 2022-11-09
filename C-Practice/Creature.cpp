@@ -67,6 +67,16 @@ int Creature::GetMaxWeight(const int strength, const int constitution)
     return max_weight;
 }
 
+int Creature::GetBlockDamage()
+{
+    return block_damage;
+}
+
+void Creature::SetBlockDamage(int newBlockDamage)
+{
+    block_damage = newBlockDamage;
+}
+
 void Creature::ToString()
 {
     std::cout << "Name: " << GetName() << std::endl;

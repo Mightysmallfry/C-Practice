@@ -3,136 +3,107 @@
 void Conflict::BeginFight(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi)
 {
 	printCombat(dinosaurPlayer, dinosaurAi);
+
+	dinosaurPlayer.SetBlockDamage(0);
+	dinosaurAi.SetBlockDamage(0);
+
 	while (true) 
 	{
-
+		NextTurn(dinosaurPlayer, dinosaurAi);
 
 		if (dinosaurPlayer.GetDexterity() >= dinosaurAi.GetDexterity())
 		{
-			int player_block = dinosaurPlayer.GetConstitution();
-			int ai_block = dinosaurAi.GetConstitution();
+			// ======== Player's Turn =========
+			int actionIndex = dinosaurPlayer.GetActions(true, dinosaurPlayer.creatureActions);
 
-			int player_action = GetActionPlayer();
-			bool isAttacking = GetIsAttacking(player_action);
-			if (isAttacking == true) {
-				player_block = dinosaurPlayer.GetConstitution();//Always reset the block to default if attacking
-				dinosaurAi.SetHpCurrent(dinosaurAi.GetHpCurrent() + (ai_block - GetAttackPlayer(player_action, dinosaurPlayer)));
+			int actionNum = GetActionValue(actionIndex, dinosaurPlayer);
+			if (actionIndex != 0) {
+				std::cout << "\n" << actionNum << " Attack action returned" << std::endl; //For Debugging
+				DealDamage(actionNum, dinosaurAi);
 			}
-			else { // must be blocking if not attacking
-				player_block = dinosaurPlayer.DamageBlock();
+			else {
+				SetBlockDamage(actionNum, dinosaurPlayer);
+				std::cout << "\n" << actionNum << " Block action returned" << std::endl; //For Debugging
 			}
 
-			dinosaurPlayer.SetHpCurrent(dinosaurPlayer.GetHpCurrent() + (player_block - GetAttackAi(dinosaurAi)));
+			// ========= Ai's Turn ==========
 
+			actionIndex = dinosaurAi.GetActions(false, dinosaurAi.creatureActions);
 
+			if (actionIndex != 0) {
+				DealDamage(GetActionValue(actionIndex, dinosaurAi), dinosaurPlayer);
+			}
+			else {
+				SetBlockDamage(GetActionValue(actionIndex, dinosaurAi), dinosaurAi);
+			}
 
 			// ===== Check if Game Over =====
 			printCombat(dinosaurPlayer, dinosaurAi);
 
 			if (dinosaurPlayer.GetIsDead(dinosaurPlayer.GetHpCurrent()) || dinosaurAi.GetIsDead(dinosaurAi.GetHpCurrent())) {
 
-				std::cout << "GAME OVER!" << std::endl;
+				std::cout << "============= GAME OVER! ==============" << std::endl;
 				return;
 			}
-
-
 		}
 		else {
-
-
-			int player_block = dinosaurPlayer.GetConstitution();
-			int ai_block = dinosaurAi.GetConstitution();
-
-			dinosaurPlayer.SetHpCurrent(dinosaurPlayer.GetHpCurrent() + (player_block - GetAttackAi(dinosaurAi)));
-
-
-			int player_action = GetActionPlayer();
-			bool isAttacking = GetIsAttacking(player_action);
-			if (isAttacking == true) {
-				player_block = dinosaurPlayer.GetConstitution();//Always reset the block to default if attacking
-				dinosaurAi.SetHpCurrent(dinosaurAi.GetHpCurrent() + (ai_block - GetAttackPlayer(player_action, dinosaurPlayer)));
-			}
-			else { // must be blocking if not attacking
-				player_block = dinosaurPlayer.DamageBlock();
-			}
-
-
 			// ===== Check if Game Over =====
 			printCombat(dinosaurPlayer, dinosaurAi);
 
 			if (dinosaurPlayer.GetIsDead(dinosaurPlayer.GetHpCurrent()) || dinosaurAi.GetIsDead(dinosaurAi.GetHpCurrent())) {
 				
-				std::cout << "GAME OVER!" << std::endl;
+				std::cout << "============= GAME OVER! ==============" << std::endl;
 				return;
 			}
+
+			return; //For Debugging
 		}
 	}
 }
 
-int Conflict::GetActionPlayer()
+int Conflict::GetActionValue(int dinosaurAction, Dinosaur& dinosaur)
 {
-	int player_choice = 0;
-	char input = 'Z';
-
-
-	std::cout << "Which action will you do?" << std::endl;
-	std::cout << "[S]tomp, [T]ail, [B]lock" << std::endl;
-	std::cin >> input;
-
-	switch (input)
-	{
-	case 'S':
-		player_choice = 1;
-		break;
-	case 'T':
-		player_choice = 2;
-		break;
-	case 'B':
-		player_choice = 3;
-		break;
-	}
-
-	return player_choice;
-}
-
-bool Conflict::GetIsAttacking(int player_action)
-{
-	bool isAttacking = true;
-	switch (player_action)
-	{
-	case 3:
-		isAttacking = false;
-		break;
-	default:
-		isAttacking = true;
-		break;
-	}
-	return isAttacking;
-}
-
-int Conflict::GetAttackPlayer(int player_action, Dinosaur& playerDinosaur)
-{
-
-	int damage = 0;
-
-	switch (player_action) {
+	switch (dinosaurAction) {
+	case 0:
+		return dinosaur.DamageBlock();
 	case 1:
-		damage = playerDinosaur.AttackStomp();
-		break;
+		return dinosaur.AttackStomp();
 	case 2:
-		damage = playerDinosaur.AttackTail();
-		break;
+		return dinosaur.AttackTail();
 	}
-
-	return damage;
 }
 
-int Conflict::GetAttackAi(Dinosaur& dinosaurAi)
+void Conflict::DealDamage(int damageValue, Dinosaur& damagedDinosaur)
 {
-	int attack_value = dinosaurAi.AttackStomp();
-
-	return attack_value;
+	damagedDinosaur.SetHpCurrent(damagedDinosaur.GetHpCurrent() + damagedDinosaur.GetBlockDamage() - damageValue);
 }
+
+void Conflict::SetBlockDamage(int blockValue, Dinosaur& blockingDinosaur)
+{
+	blockingDinosaur.SetBlockDamage(blockValue);
+}
+
+int Conflict::turnNum = 0;
+
+void Conflict::NextTurn(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi)
+{
+	int currentTurn = GetTurnNum();
+	SetTurnNum(++currentTurn);
+}
+
+void Conflict::SetTurnNum(int nextTurnNum)
+{
+	turnNum = nextTurnNum;
+}
+
+int Conflict::GetTurnNum()
+{
+	return turnNum;
+}
+
+
+
+
 
 void Conflict::printCombat(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi)
 {
@@ -141,4 +112,6 @@ void Conflict::printCombat(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi)
 	std::cout << "====Ai====" << std::endl;
 	dinosaurAi.ToString();
 	std::cout << "============" << std::endl;
+	std::cout << "====Turn====" << std::endl;
+	std::cout << "==" << GetTurnNum() << std::endl;
 }

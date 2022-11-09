@@ -1,6 +1,6 @@
 #pragma once
-#include "Creature.h"
 
+#include "Creature.h"
 
 
 class Dinosaur :
@@ -19,12 +19,21 @@ public:
 
     int DamageBlock(); //reduces damage by constitution
 
+    int GetActions(bool isPlayer, std::vector<std::string> actionVector); //returns the vector containing this dinosaurs available actions
 
+    //Attempt to use a hashtable
+    //typedef int* FnPtr;
+    //std::map<std::string, FnPtr> dinosaurMap =
+    //{
+    //    {"Stomp", AttackStomp()},
+    //    {"Tail", AttackTail()},
+    //    {"Block", DamageBlock()}
+    //};
 
+    std::vector<std::string> creatureActions = { "Block", "Stomp", "Tail" }; // index 0 always reserved for blocking
 
 private:
     
-
 
 
 };

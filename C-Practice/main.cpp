@@ -2,6 +2,8 @@
 //#include <string>
 //#include <vector>
 
+
+
 #include "Item.h"
 #include "Weapon.h"
 #include "Creature.h"
@@ -34,8 +36,8 @@ int main()
 
     Conflict battle;
     Dinosaur Stegosaurus("Stegosaurus", 4, 5, 3, 6);
-    Dinosaur TyranousRex("T-Rex", 10, 3, 5, 4);
-
+    Dinosaur TyranousRex("T-Rex", 10, 153, 5, 4);
+    
     battle.BeginFight(TyranousRex, Stegosaurus);
 
     //Item itemEntity; //Default Constructor
@@ -46,5 +48,7 @@ int main()
 
     //itemEntity.toString();
     //weaponEntity.toString();
+
+
 
 }

@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
+//#include <functional>
+//#include <map>
 
 class Creature
 {
@@ -33,6 +36,12 @@ public:
     static int GetInventorySize(int strength); //don't think I want static, each enemy (and npc) has their own inventory that the player can take from.
     static int GetMaxWeight(int strength, int constitution);
 
+	int GetBlockDamage();
+	void SetBlockDamage(int newBlockDamage);
+
+
+
+
 	void ToString();
 
 
@@ -47,6 +56,8 @@ private:
 	int hp_current{hp_maximum};
 	
 	bool is_dead{false};
+
+	int block_damage{ 0 };
 
 };
 

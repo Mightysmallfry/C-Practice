@@ -1,5 +1,7 @@
 #pragma once
 
+
+
 #include "Dinosaur.h"
 
 
@@ -10,17 +12,30 @@ public:
 
 	static void BeginFight(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi);
 
-	static int GetActionPlayer(); //Player chooses which action and returns value
-	static bool GetIsAttacking(int player_action); // checks if player is attacking or blocking
-	static int GetAttackPlayer(int player_action, Dinosaur& playerDinosaur); // returns value for chosen attack
+	static int GetActionValue(int dinosaurAction, Dinosaur& dinosaur);
+	
+	static void DealDamage(int damageValue, Dinosaur& damagedDinosaur);
+	static void SetBlockDamage(int blockValue, Dinosaur& blockingDinosaur);
+
+	static void NextTurn(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi);
+
+	static void SetTurnNum(int nextTurnNum);
+	static int GetTurnNum();
 
 
-	static int GetAttackAi(Dinosaur& dinosaurAi); //AI randomly chooses the actions, but right now will only stomp
+
+
 
 	static void printCombat(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi);
 
-private:
 
+
+	// ===================== Optimized Functions ===============
+
+
+
+private:
+	static int turnNum;
 
 };
 

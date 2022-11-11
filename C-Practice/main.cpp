@@ -18,9 +18,12 @@
 #include <algorithm>
 
 
-
 int main()
 {
+   
+
+
+
     //===================================================== Creature Class
     
     //Creature neutralEntity; //Default values are of a dog
@@ -67,12 +70,23 @@ int main()
     //itemEntity.toString();
     //weaponEntity.toString();
 
-    //===================================================== 
+    //===================================================== Screen/Console API, NOTE: Only Local(in this file) Code
+    //Would be better to make this a class
+   
+
 
     int nScreenHeight = 120;
     int nScreenWidth = 40;
 
     //create screen buffer
+
+    HANDLE consoleColor = GetStdHandle(STD_OUTPUT_HANDLE);
+    std::cout << consoleColor;
+    DWORD p = 2;
+
+
+    SetConsoleTextAttribute(consoleColor, p);
+
     wchar_t* screen = new wchar_t[nScreenWidth * nScreenHeight];
     HANDLE hconsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
     SetConsoleActiveScreenBuffer(hconsole);
@@ -83,6 +97,13 @@ int main()
     screen[nScreenWidth * nScreenHeight - 1] = '\0';
     WriteConsoleOutputCharacter(hconsole, screen, nScreenWidth*nScreenHeight, {0,0}, &dwBytesWritten);
 
+    void SetConsoleDimensions(int width, int height);
+    void MoveConsoleCuror(int x, int y);
+
+
 
 
 }
+
+
+

@@ -103,6 +103,7 @@ void Conflict::DoTurn(bool isPlayer, Dinosaur& dinosaurPlayer, Dinosaur& dinosau
 		dinosaurOpponent = dinosaurPlayer;
 	}
 
+	dinosaurCurrent.SetBlockDamage(0);
 	//std::cout << "Current Dino Name:" << dinosaurCurrent.GetName() << std::endl; //For Debugging
 	//std::cout << "Opponent Dino Name:" << dinosaurOpponent.GetName() << std::endl; //For Debugging
 

@@ -152,6 +152,7 @@
     <ClInclude Include="Dinosaur.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Utilities.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <ItemGroup>

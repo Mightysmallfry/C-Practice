@@ -1,9 +1,5 @@
-//#include <iostream>
-//#include <string>
-//#include <vector>
 
-#include <algorithm> // for the has table 
-
+#include "Utilities.h"
 
 #include "Item.h"
 #include "Weapon.h"
@@ -11,11 +7,7 @@
 #include "Dinosaur.h"
 #include "Conflict.h"
 
-#include <iostream>
-#include <conio.h>
-#include <stdio.h>
-#include <Windows.h>
-#include <algorithm>
+
 
 
 int main()
@@ -83,9 +75,10 @@ int main()
     HANDLE consoleColor = GetStdHandle(STD_OUTPUT_HANDLE);
     std::cout << consoleColor;
     DWORD p = 2;
-
-
     SetConsoleTextAttribute(consoleColor, p);
+
+
+
 
     wchar_t* screen = new wchar_t[nScreenWidth * nScreenHeight];
     HANDLE hconsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
@@ -94,16 +87,5 @@ int main()
 
 
 
-    screen[nScreenWidth * nScreenHeight - 1] = '\0';
-    WriteConsoleOutputCharacter(hconsole, screen, nScreenWidth*nScreenHeight, {0,0}, &dwBytesWritten);
-
-    void SetConsoleDimensions(int width, int height);
-    void MoveConsoleCuror(int x, int y);
-
-
-
-
 }
-
-
 

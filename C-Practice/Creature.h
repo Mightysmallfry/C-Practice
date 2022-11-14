@@ -43,7 +43,7 @@ public:
 
 
 private: 
-	std::string name{"Dog"};
+	std::string name{};
 	int str{7};
 	int dex{5};
 	int con{10};

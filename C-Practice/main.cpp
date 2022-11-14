@@ -24,11 +24,13 @@ int main()
 
     //===================================================== Dinosaur Class
 
-    //TODO: Make a Class:Dinosaur that inherits from Class:Creature
+    //Make a Class:Dinosaur that inherits from Class:Creature
         // includes new stomp and tail attack, and block actions.
         
-
-    //TODO: Give Dinosaur Class a default constructor that is different from Creature's
+    //TODO: Refactor Dinosaur actions as a system and look at replacing them with virtual features.
+     
+    
+    //Give Dinosaur Class a default constructor that is different from Creature's
         //Make the Default a Triceratops
 
     //Dinosaur dinosaurEntity;
@@ -37,7 +39,7 @@ int main()
     //dinosaurEntity.ToString();    
    
     //===================================================== Conflict Class
-    //TODO: Make a Class:Conflict which will handle battles between two creatures/dinosaurs
+    //Make a Class:Conflict which will handle battles between two creatures/dinosaurs
         // Must have turn based functions.
             //Find what creatures it has, find what attacks each creature has
 
@@ -66,7 +68,7 @@ int main()
     //Would be better to make this a class
    
 
-
+    //TODO: Create a Display Class to handle console buffering and writing
     int nScreenHeight = 120;
     int nScreenWidth = 40;
 
@@ -85,9 +87,7 @@ int main()
     SetConsoleActiveScreenBuffer(hconsole);
     DWORD dwBytesWritten = 0;
 
-    LPDWORD *writtenPtr = 0;
-     
+    
 
-    WriteConsole(consoleColor, NULL, p, *writtenPtr, NULL);
 }
 

@@ -33,6 +33,9 @@
     <ClCompile Include="Conflict.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Triceratops.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Triceratops.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

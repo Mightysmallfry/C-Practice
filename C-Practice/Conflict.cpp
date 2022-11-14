@@ -50,6 +50,7 @@ int Conflict::GetActionValue(int dinosaurAction, Dinosaur& dinosaur)
 	case 2:
 		return dinosaur.AttackTail();
 	}
+	return 0;
 }
 
 void Conflict::DealDamage(int damageValue, Dinosaur& damagedDinosaur)
@@ -131,11 +132,13 @@ void Conflict::DoTurn(bool isPlayer, Dinosaur& dinosaurPlayer, Dinosaur& dinosau
 
 bool Conflict::CheckGameOver(Dinosaur& dinosaurPlayer, Dinosaur& dinosaurAi)
 {
+	bool ret_game_over = false;
 	if (dinosaurPlayer.GetIsDead(dinosaurPlayer.GetHpCurrent()) || dinosaurAi.GetIsDead(dinosaurAi.GetHpCurrent())) {
 
 		std::cout << "============= GAME OVER! ==============" << std::endl;
-		return true;
+		ret_game_over = true;
 	}
+	return ret_game_over;
 }
 
 

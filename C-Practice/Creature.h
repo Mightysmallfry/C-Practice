@@ -2,6 +2,7 @@
 
 #include "Utilities.h"
 
+
 class Creature
 {
 public:
@@ -38,7 +39,6 @@ public:
 
 
 
-
 	void ToString();
 
 
@@ -57,4 +57,5 @@ private:
 	int block_damage{ 0 };
 
 };
+
 

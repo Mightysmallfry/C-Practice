@@ -6,7 +6,7 @@
 #include "Creature.h"
 #include "Dinosaur.h"
 #include "Conflict.h"
-
+#include "Triceratops.h"
 
 
 
@@ -69,25 +69,29 @@ int main()
    
 
     //TODO: Create a Display Class to handle console buffering and writing
-    int nScreenHeight = 120;
-    int nScreenWidth = 40;
+    //int nScreenHeight = 120;
+    //int nScreenWidth = 40;
 
-    //create screen buffer
+    ////create screen buffer
 
-    HANDLE consoleColor = GetStdHandle(STD_OUTPUT_HANDLE);
-    std::cout << consoleColor;
-    DWORD p = 2;
-    SetConsoleTextAttribute(consoleColor, p);
-
-
+    //HANDLE consoleColor = GetStdHandle(STD_OUTPUT_HANDLE);
+    //std::cout << consoleColor;
+    //DWORD p = 2;
+    //SetConsoleTextAttribute(consoleColor, p);
 
 
-    wchar_t* screen = new wchar_t[nScreenWidth * nScreenHeight];
-    HANDLE hconsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-    SetConsoleActiveScreenBuffer(hconsole);
-    DWORD dwBytesWritten = 0;
+
+
+    //wchar_t* screen = new wchar_t[nScreenWidth * nScreenHeight];
+    //HANDLE hconsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
+    //SetConsoleActiveScreenBuffer(hconsole);
+    //DWORD dwBytesWritten = 0;
 
     
+    //=======================================================
 
+    Triceratops Tucker;
+    
+    
 }
 

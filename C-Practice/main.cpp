@@ -85,7 +85,9 @@ int main()
     SetConsoleActiveScreenBuffer(hconsole);
     DWORD dwBytesWritten = 0;
 
+    LPDWORD *writtenPtr = 0;
+     
 
-
+    WriteConsole(consoleColor, NULL, p, *writtenPtr, NULL);
 }
 

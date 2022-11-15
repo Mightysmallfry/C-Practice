@@ -5,9 +5,9 @@
 #include "Weapon.h"
 #include "Creature.h"
 #include "Dinosaur.h"
-#include "Conflict.h"
+//#include "Conflict.h"
 #include "Triceratops.h"
-
+#include "Game.h"
 
 
 int main()
@@ -90,8 +90,10 @@ int main()
     
     //=======================================================
 
-    Triceratops Tucker;
     
+    Game game;
+    game.Run(true);
+
     
 }
 

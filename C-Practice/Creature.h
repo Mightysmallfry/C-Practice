@@ -1,7 +1,7 @@
 #pragma once
 
+#include "Attack.h"
 #include "Utilities.h"
-
 
 class Creature
 {

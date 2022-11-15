@@ -4,28 +4,23 @@
 
 
 class Dinosaur :
-    public Creature
+    public Creature, public Attack
 {
 public:
     Dinosaur()
-        : Creature("Triceratops", 7, 5, 10, 0) {}
+        : Creature("Triceratops", 7, 5, 10, 0) {
+        InitAttacks();
+    }
 
     Dinosaur(const std::string& name, const int strength, const int dexterity, const int constitution, const int charisma)
-        : Creature(name, strength, dexterity, constitution, charisma) {}
+        : Creature(name, strength, dexterity, constitution, charisma) {
+        InitAttacks();
+    }
 
+    void InitAttacks();
 
-    int AttackStomp(); //deals damage equal to strength * 2
-    int AttackTail(); //deals damage equal to dexterity + strength
-
-    int DamageBlock(); //reduces damage by constitution
-
-    int GetActions(bool isPlayer, std::vector<std::string> actionVector); //returns the vector containing this dinosaurs available actions
-
-
-    std::vector<std::string> creatureActions = { "Block", "Stomp", "Tail" }; // index 0 always reserved for blocking
-
-
-
+    Attack GetAttackAttributes(AttackActions attack);
+    void AttacksToString();
 
 private:
     

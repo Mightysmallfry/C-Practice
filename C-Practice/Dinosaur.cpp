@@ -1,53 +1,38 @@
 #include "Dinosaur.h"
 #include <typeinfo> //For Debugging
 
-int Dinosaur::AttackStomp()
+
+void Dinosaur::InitAttacks()
 {
-    return (GetStrength() * 2);
+	Attack BaseAttack("BaseAttack", AttackActions::None, DamageTypes::None, 0, 0);
+
+	attackVector.push_back(BaseAttack);
 }
 
-int Dinosaur::AttackTail()
+Attack Dinosaur::GetAttackAttributes(AttackActions attack)
 {
-    return (GetDexterity() + GetStrength());
+	Attack ret_attack;
+
+	for (int i = 0; i < size(attackVector); i++)
+	{
+		if (attack == attackVector[i].GetAttackName())
+		{
+			ret_attack = attackVector[i];
+		}
+	}
+
+	if (ret_attack.GetAttackStrName() == "")
+	{
+		std::cout << "Possible error with Dinosaur::GetAttackAttributes" << std::endl;
+	}
+
+	return ret_attack;
 }
 
-int Dinosaur::DamageBlock()
+void Dinosaur::AttacksToString()
 {
-    int armor = GetConstitution() * 3;
-    return armor;
+	for (int i = 0; i < size(attackVector); i++)
+	{
+		std::cout << attackVector[i].GetAttackStrName() << std::endl;
+	}
 }
-
-int Dinosaur::GetActions(bool isPlayer, std::vector<std::string> actionVector)
-{
-    // return 0 for block
-    //int actionIndex = 0;
-    std::string input;
-
-    if (isPlayer == true) {
-        std::cout << "Which action will you do?" << std::endl;
-        std::cout << "Stomp, Tail, Block" << std::endl;
-        std::cin >> input;
-        //std::cout << input << ":Type:" << typeid(input).name() << std::endl; //For Debugging
-        
-        for (int actionIndex = 0; actionIndex <= actionVector.size(); actionIndex = (actionIndex + 1)) {
-            //std::cout << actionIndex << std::endl; //For Debugging
-            
-            if (input == actionVector[actionIndex]) {
-                //std::cout << "Action Index: " << actionIndex << std::endl; //For Debugging
-                return actionIndex;
-            }
-            
-            //else {
-            //    std::cout << "Action Index returned 0" << std::endl; //For Debugging
-            //    std::cout << "Vector size: " << actionVector.size() << std::endl; //For Debugging
-            //}
-        }
-
-    }
-    else {
-        return 1;
-    }
-}
-
-
-

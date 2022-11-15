@@ -77,16 +77,7 @@ void Creature::SetBlockDamage(int newBlockDamage)
     block_damage = newBlockDamage;
 }
 
-ATTACKATTRIBUTES Creature::SetToDefaultAttackAttributes(ATTACKATTRIBUTES attackAttributesStruct)
-{
-    attackAttributesStruct.name = "None";
-    attackAttributesStruct.attack_name = AttackActions::None;
-    attackAttributesStruct.damage_type = DamageTypes::None;
-    attackAttributesStruct.damage_value = 0;
-    attackAttributesStruct.target_number = 1;
 
-    return attackAttributesStruct;
-}
 
 void Creature::ToString()
 {

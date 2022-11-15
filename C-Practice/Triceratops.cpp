@@ -1,20 +1,10 @@
 #include "Triceratops.h"
 
-int Triceratops::GetAttackDamage(Attack& attack)
+void Triceratops::InitAttacks()
 {
-	return attack.damage_value;
-}
+	Attack Stomp("Stomp", AttackActions::AttackStomp, DamageTypes::Bludgeoning, 5, 1);
+	Attack Charge("Charge", AttackActions::AttachCharge, DamageTypes::Piercing, 10, 3);
 
-void Triceratops::SetAttack(Attack& attack, std::string name, AttackActions attackName, DamageTypes damageType, int damageVal, int targetNum)
-{
-	attack.name = name;
-	attack.attack_name = attackName;
-	attack.damage_type = damageType;
-	attack.damage_value = damageVal;
-	attack.target_number = targetNum;
-}
-
-Attack Triceratops::GetAttack(Attack& attack)
-{
-	return attack;
+	attackVector.push_back(Stomp);
+	attackVector.push_back(Charge);
 }

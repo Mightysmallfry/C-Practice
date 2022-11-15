@@ -80,20 +80,3 @@ enum class DamageTypes { // Has to contain all damage types available to creatur
     Fire,
     Cold
 };
-
-class Attack {
-public:
-	Attack() {}
-	Attack(const std::string aName, AttackActions attackName, DamageTypes damageType, int damageVal, int targetNum) 
-		: name(aName), attack_name(attackName), damage_type(damageType), damage_value(damageVal), target_number(targetNum) {}
-
-	std::string name {};
-	AttackActions attack_name{AttackActions::None};
-	DamageTypes damage_type{DamageTypes::None};
-	int damage_value{ 0 };
-	int target_number{ 0 };
-};
-
-
-////List of Attacks
-//Attack Stomp("Stomp", AttackActions::AttackStomp, DamageTypes::Bludgeoning, 5, 1);

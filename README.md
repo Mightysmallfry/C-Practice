@@ -37,10 +37,13 @@ The base class for all creatures, ally or enemy
 - Magic Force
 
 ## Stats:
+Basic Stats
 - Strength - For physical attacks
 - Dexterity - For Defense, who moves first, special attacks
 - Constitution - For Hit points and blocking
 - Charisma - For Fear, debuffs, persuassion
-- Arcane - For magic and elemental attacks, Maybe do some kind of affinity system
+Advanced Stats
+- Arcane - For magic and elemental attacks
+- Elemental Affinity - per each element the creature could have better affinity. (opens opportunity to an item evening out the affinity then)
 - Resistances - halves the damage of matching attacks
 - Immunities - sets the damage taken from matching attacks to 0

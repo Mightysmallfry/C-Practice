@@ -6,6 +6,9 @@ Players may give their dinosaurs specials abilities through the use of items, ad
 
 ### Current Status : < Incomplete >
 
+### Built Using Fossil Fuel
+My first version of a 2d console game engine. Very bare bones and will mostly be handling sprites, display settings and player to game interactions
+
 ## Utilities:
 - Setting Cursor Position
 - Get Console Dimensions

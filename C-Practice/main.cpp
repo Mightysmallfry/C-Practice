@@ -27,8 +27,7 @@ int main()
     //Make a Class:Dinosaur that inherits from Class:Creature
         // includes new stomp and tail attack, and block actions.
         
-    //TODO: Refactor Dinosaur actions as a system and look at replacing them with virtual features.
-     
+         
     
     //Give Dinosaur Class a default constructor that is different from Creature's
         //Make the Default a Triceratops

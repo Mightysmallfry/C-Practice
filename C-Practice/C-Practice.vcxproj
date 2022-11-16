@@ -144,6 +144,7 @@
     <ClCompile Include="Creature.cpp" />
     <ClCompile Include="Dinosaur.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HitPoints.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Triceratops.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Dinosaur.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="HitPoints.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Triceratops.h" />

@@ -1,9 +1,11 @@
 #pragma once
 
 #include "Attack.h"
+#include "HitPoints.h"
 #include "Utilities.h"
 
-class Creature
+class Creature :
+	public HitPoints
 {
 public:
 	Creature() {};
@@ -16,13 +18,6 @@ public:
 	int GetConstitution() const;
 	int GetCharisma() const;
 
-	int GetHpMaximum();
-	int GetHpCurrent();
-
-	void SetHpMaximum(int newMaxHp); //different calculation for enemies, npcs and players
-	void SetHpCurrent(int newHp);
-
-	bool GetIsDead(int curHp); //check if creature is dead
 
 	//TODO: Refactor Inventory System.
     int GetInventorySize(int strength); //don't think I want static, each enemy (and npc) has their own inventory that the player can take from.
@@ -30,8 +25,10 @@ public:
 
 
 	//TODO: Refactor HP/Damage and Block System // all will be in hp class
-	int GetBlockDamage();
-	void SetBlockDamage(int newBlockDamage);
+
+	int CalcHpMaximum(int constitution);
+	int CalcArmorMaximum(int strength);
+	int CalcMagicForceMaximum(int magic); // new stat
 
 
 

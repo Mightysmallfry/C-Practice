@@ -13,6 +13,8 @@ public:
 		: name(creature_name), str(strength), dex(dexterity), con(constitution), cha(charisma) {}
 
 	std::string GetName() const;
+
+	//TODO: Refactor Stats into a class/struct
 	int GetStrength() const;
 	int GetDexterity() const;
 	int GetConstitution() const;
@@ -24,7 +26,7 @@ public:
     int GetMaxWeight(int strength, int constitution);
 
 
-	//TODO: Refactor HP/Damage and Block System // all will be in hp class
+	//Refactored HP/Damage and Block System // all will be in hp class
 
 	int CalcHpMaximum(int constitution);
 	int CalcArmorMaximum(int strength);

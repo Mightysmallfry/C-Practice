@@ -6,7 +6,16 @@ Players may give their dinosaurs specials abilities through the use of items, ad
 
 ### Current Status : < Incomplete >
 
-## Creature Class:
+## Utilities:
+- Setting Cursor Position
+- Get Console Dimensions
+- Get Screen Dimensions
+- Attack Actions - All available attacks
+- Damage types - All available damage types
+- Physical Damage - which damage types count as physical
+- Magical Damage - which damage types count as magic or elemental
+
+## Creature:
 The base class for all creatures, ally or enemy
 - Hit Points
 - Stats
@@ -24,3 +33,11 @@ The base class for all creatures, ally or enemy
 - Armor
 - Magic Force
 
+## Stats:
+- Strength - For physical attacks
+- Dexterity - For Defense, who moves first, special attacks
+- Constitution - For Hit points and blocking
+- Charisma - For Fear, debuffs, persuassion
+- Arcane - For magic and elemental attacks
+- Resistances - halves the damage of matching attacks
+- Immunities - sets the damage taken from matching attacks to 0

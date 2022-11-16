@@ -38,6 +38,6 @@ The base class for all creatures, ally or enemy
 - Dexterity - For Defense, who moves first, special attacks
 - Constitution - For Hit points and blocking
 - Charisma - For Fear, debuffs, persuassion
-- Arcane - For magic and elemental attacks
+- Arcane - For magic and elemental attacks, Maybe do some kind of affinity system
 - Resistances - halves the damage of matching attacks
 - Immunities - sets the damage taken from matching attacks to 0

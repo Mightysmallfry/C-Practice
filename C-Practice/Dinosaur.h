@@ -17,7 +17,9 @@ public:
         InitAttacks();
     }
 
-    void InitAttacks();
+    virtual void InitAttacks();
+    virtual void InitDamageRes();
+
 
     Attack GetAttackAttributes(AttackActions attack);
     void AttacksToString();

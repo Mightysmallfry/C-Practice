@@ -8,3 +8,16 @@ void Triceratops::InitAttacks()
 	attackVector.push_back(Stomp);
 	attackVector.push_back(Charge);
 }
+
+void Triceratops::InitDamageRes()
+{
+	damageResVector.push_back(DamageTypes::Slashing);
+}
+
+void Triceratops::Update()
+{
+	if (GetIsDead() != false)
+	{
+		//~Triceratops(); //TODO: Look into Destructors for Triceratops during Update()
+	}
+}

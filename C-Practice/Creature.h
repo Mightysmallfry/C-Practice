@@ -2,54 +2,49 @@
 
 #include "Attack.h"
 #include "HitPoints.h"
+#include "StatBlock.h"
 #include "Utilities.h"
 
 class Creature :
-	public HitPoints
+	public HitPoints, public StatBlock
 {
 public:
 	Creature() {};
 	Creature(std::string creature_name, int strength, int dexterity, int constitution, int charisma)
-		: name(creature_name), str(strength), dex(dexterity), con(constitution), cha(charisma) {}
+		: StatBlock(strength, dexterity, constitution, charisma) {}
 
+	//Game Needs to Know
 	std::string GetName() const;
+	virtual void Update() = 0;
 
-	//TODO: Refactor Stats into a class/struct
-	int GetStrength() const;
-	int GetDexterity() const;
-	int GetConstitution() const;
-	int GetCharisma() const;
+
+	//TODO: Refactor Stats into a class
+	//Refactored HP/Damage and Block System 
+	//Need to work on Advanced Stats
+
+	//virtual in case dinosaurs/velociraptors dexterity instead of strength
+
+	inline int GetHpConst() { return HPConst; };
+	inline int GetArConst() { return ARConst; };
+	inline int GetMfConst() { return MFConst; };
+
+	virtual void CalcHpMaximum(int constitution); // HPmax = Constitution * 10
+	virtual void CalcArmorMaximum(int strength); // ARmax = Strength * 2 || Dexterity * 2
+	virtual void CalcMagicForceMaximum(int magic); // new stat MFmax = magic * 2
 
 
 	//TODO: Refactor Inventory System.
-    int GetInventorySize(int strength); //don't think I want static, each enemy (and npc) has their own inventory that the player can take from.
-    int GetMaxWeight(int strength, int constitution);
-
-
-	//Refactored HP/Damage and Block System // all will be in hp class
-
-	int CalcHpMaximum(int constitution);
-	int CalcArmorMaximum(int strength);
-	int CalcMagicForceMaximum(int magic); // new stat
-
-
-
-	void ToString();
+	int GetInventorySize(int strength); //don't think I want static, each enemy (and npc) has their own inventory that the player can take from.
+	int GetMaxWeight(int strength, int constitution);
 
 
 private: 
-	std::string name{};
-	int str{7};
-	int dex{5};
-	int con{10};
-	int cha{0};
+	std::string name{ "Base Creature" };
 	
-	int hp_maximum{100};
-	int hp_current{hp_maximum};
-	
-	bool is_dead{false};
-
-	int block_damage{ 0 };
+	//may not want these to be type const in the future (thinking items)
+	static const int HPConst = 10;
+	static const int ARConst = 2;
+	static const int MFConst = 2;
 
 };
 

@@ -5,26 +5,23 @@ std::string Creature::GetName() const
     return name;
 }
 
-int Creature::GetStrength() const
+void Creature::CalcHpMaximum(int constitution)
 {
-    return str;
+    int newHpMax = constitution * GetHpConst();
+    SetHpMaximum(newHpMax);
 }
 
-int Creature::GetDexterity() const
+void Creature::CalcArmorMaximum(int strength)
 {
-    return dex;
+    int newArMax = strength * GetArConst();
+    SetArmorMaximum(newArMax);
 }
 
-int Creature::GetConstitution() const
+void Creature::CalcMagicForceMaximum(int magic)
 {
-    return con;
+    int newMfMax = magic * GetMfConst();
+    SetMagicForceMaximum(newMfMax);
 }
-
-int Creature::GetCharisma() const
-{
-    return cha;
-}
-
 
 int Creature::GetInventorySize(const int strength)
 {
@@ -40,15 +37,3 @@ int Creature::GetMaxWeight(const int strength, const int constitution)
 }
 
 
-
-
-void Creature::ToString()
-{
-    std::cout << "Name: " << GetName() << std::endl;
-    std::cout << "Hp: " << GetHpCurrent() << "/" << GetHpMaximum() << std::endl; 
-    std::cout << "Strength: " << GetStrength() << std::endl;
-    std::cout << "Dexterity: " << GetDexterity() << std::endl;
-    std::cout << "Consitution: " << GetConstitution() << std::endl;
-    std::cout << "Charisma: " << GetCharisma() << std::endl;
-
-}

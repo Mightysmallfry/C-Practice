@@ -9,6 +9,11 @@ void Dinosaur::InitAttacks()
 	attackVector.push_back(BaseAttack);
 }
 
+void Dinosaur::InitDamageRes()
+{
+	damageResVector.push_back(DamageTypes::None);
+}
+
 Attack Dinosaur::GetAttackAttributes(AttackActions attack)
 {
 	Attack ret_attack;

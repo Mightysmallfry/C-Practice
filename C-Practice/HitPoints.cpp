@@ -74,7 +74,7 @@ void HitPoints::SetIsDead(bool is_dead)
 	isDead = is_dead;
 }
 
-void HitPoints::TakeDamage(Attack& attack)
+void HitPoints::TakeDamage(Attack& attack) //Possible future bug with negative damage.
 {
 	int newHitPoints = GetHpCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
 	int HpDamage = 0;

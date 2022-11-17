@@ -2,6 +2,7 @@
 
 #include "Utilities.h"
 #include "Attack.h"
+#include "StatBlock.h"
 
 class HitPoints
 {
@@ -36,8 +37,8 @@ public:
 	void SetIsDead(bool is_dead);
 
 
+	//TODO: Update TakeDamage to handle resistences
 	void TakeDamage(Attack& attack);
-
 
 
 private:

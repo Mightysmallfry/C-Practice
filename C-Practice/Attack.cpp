@@ -1,8 +1,6 @@
 #include "Attack.h"
 
-void Attack::InitAttacks()
-{
-}
+void Attack::InitAttacks() {}
 
 void Attack::AddAttack(AttackActions attack)
 {
@@ -13,11 +11,7 @@ Attack Attack::GetAttackAttributes(AttackActions attack)
 	return Attack();
 }
 
-void Attack::AttacksToString()
-{
-}
-
-
+void Attack::AttacksToString() {}
 
 AttackActions Attack::GetAttackName()
 {

@@ -147,6 +147,7 @@
     <ClCompile Include="HitPoints.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="StatBlock.cpp" />
     <ClCompile Include="Triceratops.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="HitPoints.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="StatBlock.h" />
     <ClInclude Include="Triceratops.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="Weapon.h" />

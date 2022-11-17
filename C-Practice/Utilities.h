@@ -78,7 +78,8 @@ enum class DamageTypes { // Has to contain all damage types available to creatur
     Piercing,
     Bludgeoning,
     Fire,
-    Cold
+    Cold,
+	Lightning
 };
 
 std::vector<DamageTypes> PhysicalDamage = { 
@@ -88,6 +89,7 @@ std::vector<DamageTypes> PhysicalDamage = {
 };
 
 std::vector<DamageTypes> MagicalDamage = { 
+	DamageTypes::Fire,
 	DamageTypes::Cold,
-	DamageTypes::Fire
+	DamageTypes::Lightning
 };

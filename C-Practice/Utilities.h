@@ -14,12 +14,13 @@
 inline void SetCursorPosition(int x, int y)
 {
 	COORD coord;
-	
+
 	coord.X = x;
 	coord.Y = y;
 
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
 
 inline int GetConsoleWidth() //inline to make it faster since the function will be smaller.
 {
@@ -67,7 +68,7 @@ enum class AttackActions { // Has to contain all attack actions available to cre
 	None,
     AttackTail,
     AttackStomp,
-	AttachCharge,
+	AttackCharge,
     AttackBreath
 };
 
@@ -92,4 +93,15 @@ std::vector<DamageTypes> MagicalDamage = {
 	DamageTypes::Fire,
 	DamageTypes::Cold,
 	DamageTypes::Lightning
+};
+
+const std::string DamageTypeStrNames[] =
+{
+	"None",
+	"Slashing",
+	"Piercing",
+	"Bludgeoning",
+	"Fire",
+	"Cold",
+	"Lightning"
 };

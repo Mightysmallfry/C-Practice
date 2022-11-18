@@ -1,0 +1,16 @@
+#include "ElementalAffinity.h"
+
+void ElementalAffinity::SetAffinityStrName(DamageTypes element)
+{
+	affinityName = DamageTypeStrNames[element];
+}
+
+void ElementalAffinity::SetElementalAffinity(int new_value)
+{
+	elementalAffinity = new_value;
+}
+
+void ElementalAffinity::SetHasAffinity(bool has_affinity)
+{
+	hasAffinity = has_affinity;
+}

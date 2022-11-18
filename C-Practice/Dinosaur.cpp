@@ -2,18 +2,6 @@
 #include <typeinfo> //For Debugging
 
 
-void Dinosaur::InitAttacks()
-{
-	Attack BaseAttack("BaseAttack", AttackActions::None, DamageTypes::None, 0, 0);
-
-	attackVector.push_back(BaseAttack);
-}
-
-void Dinosaur::InitDamageRes()
-{
-	damageResVector.push_back(DamageTypes::None);
-}
-
 Attack Dinosaur::GetAttackAttributes(AttackActions attack)
 {
 	Attack ret_attack;

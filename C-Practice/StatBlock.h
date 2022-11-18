@@ -1,23 +1,28 @@
 #pragma once
 
 #include "Utilities.h"
+#include "ElementalAffinity.h"
 
 class StatBlock
 {
 public:
 	StatBlock() {};
-	StatBlock(int startingStrength, int startingDexterity, int startingConstitution, int startingCharisma)
-		: strength(startingStrength), dexterity(startingDexterity), constitution(startingConstitution), charisma(startingCharisma) {}
+	StatBlock(int starting_strength, int starting_dexterity, int starting_constitution,
+			int starting_charisma, int starting_arcana)
+		: strength(starting_strength), dexterity(starting_dexterity), constitution(starting_constitution),
+			charisma(starting_charisma), arcana(starting_arcana) {}
 
 	int GetStrength();
 	int GetDexterity();
 	int GetConstitution();
 	int GetCharisma();
+	int GetArcana();
 	
-	void SetStrength(int newStrength);
-	void SetDexterity(int newDexterity);
-	void SetConstitution(int newConstitution);
-	void SetCharisma(int newCharisma);
+	void SetStrength(int new_strength);
+	void SetDexterity(int new_dexterity);
+	void SetConstitution(int new_constitution);
+	void SetCharisma(int new_charisma);
+	void SetArcana(int new_arcana);
 
 	//Basic Leveling
 	int GetCurrentExp();
@@ -30,13 +35,7 @@ public:
 	void SetCurrentLevel(int newCurLevel);
 	void SetMaximumLevel(int newMaxLevel);
 
-
-	//Advanced Stats
-	virtual void InitDamageRes();
-	void RemoveDamageRes(DamageTypes removedDamageType); 
-	//TODO: Fix StatBlock::RemoveDamageRes, basic idea is down, error right now which is bad
-
-	std::vector<DamageTypes> damageResVector;
+	//TODO: Make a ToStringStat() function that prints out all stats
 
 private:
 
@@ -50,20 +49,10 @@ private:
 	int strength{ 1 };
 	int dexterity{ 1 };
 	int constitution{ 1 };
-	int charisma{ 1 };
+	int charisma{ 1 };	
+	int arcana{ 1 }; // For future calculations with elemental affinity
 
-	//TODO: Implement Advanced Stats 
-	//These are for elemental specific skills, or ways to deal damage which would be specific to each dinosaur 
-	// Magic Stat determines damage
-	// Affinity determines bonus damage/ability to gain corresponding resistence
-	// 
-	// int arcane; //Magic Damage Value
-	// int mana; //Limits the usage of elemntal attacks?
-	// 
-	// DamageTypeAffinity Score? Fire
-	// DamageTypeAffinity Score? Cold
-	// DamageTypeAffinity Score? Lightning
-	// 
+
 
 };
 

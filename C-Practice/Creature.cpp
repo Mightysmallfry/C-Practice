@@ -1,5 +1,19 @@
 #include "Creature.h"
 
+void Creature::InitAttacks()
+{
+    Attack BaseAttack("Base Attack", AttackActions::None, DamageTypes::None, 0, 0);
+
+    attackVector.push_back(BaseAttack);
+}
+
+void Creature::InitElementalAffinity()
+{
+    ElementalAffinity None(DamageTypes::None, false, 1);
+
+    elementalAffVector.push_back(None);
+}
+
 std::string Creature::GetName() const
 {
     return name;
@@ -17,9 +31,9 @@ void Creature::CalcArmorMaximum(int strength)
     SetArmorMaximum(newArMax);
 }
 
-void Creature::CalcMagicForceMaximum(int magic)
+void Creature::CalcMagicForceMaximum(int arcane)
 {
-    int newMfMax = magic * GetMfConst();
+    int newMfMax = arcane * GetMfConst();
     SetMagicForceMaximum(newMfMax);
 }
 

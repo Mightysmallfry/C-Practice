@@ -143,22 +143,29 @@
     <ClCompile Include="Conflict.cpp" />
     <ClCompile Include="Creature.cpp" />
     <ClCompile Include="Dinosaur.cpp" />
+    <ClCompile Include="Display.cpp" />
+    <ClCompile Include="ElementalAffinity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HitPoints.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Resistances.cpp" />
     <ClCompile Include="StatBlock.cpp" />
     <ClCompile Include="Triceratops.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AllDinosaurs.h" />
     <ClInclude Include="Attack.h" />
     <ClInclude Include="Conflict.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Dinosaur.h" />
+    <ClInclude Include="Display.h" />
+    <ClInclude Include="ElementalAffinity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HitPoints.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Resistances.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="StatBlock.h" />
     <ClInclude Include="Triceratops.h" />

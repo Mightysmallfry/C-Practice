@@ -20,24 +20,34 @@ int StatBlock::GetCharisma()
     return charisma;
 }
 
-void StatBlock::SetStrength(int newStrength)
+int StatBlock::GetArcana()
 {
-    strength = newStrength;
+    return arcana;
 }
 
-void StatBlock::SetDexterity(int newDexterity)
+void StatBlock::SetStrength(int new_strength)
 {
-    dexterity = newDexterity;
+    strength = new_strength;
 }
 
-void StatBlock::SetConstitution(int newConstitution)
+void StatBlock::SetDexterity(int new_dexterity)
 {
-    constitution = newConstitution;
+    dexterity = new_dexterity;
 }
 
-void StatBlock::SetCharisma(int newCharisma)
+void StatBlock::SetConstitution(int new_constitution)
 {
-    charisma = newCharisma;
+    constitution = new_constitution;
+}
+
+void StatBlock::SetCharisma(int new_charisma)
+{
+    charisma = new_charisma;
+}
+
+void StatBlock::SetArcana(int new_arcana)
+{
+    arcana = new_arcana;
 }
 
 int StatBlock::GetCurrentExp()
@@ -79,22 +89,3 @@ void StatBlock::SetMaximumLevel(int newMaxLevel)
 {
     maximumLevel = newMaxLevel;
 }
-
-void StatBlock::InitDamageRes()
-{
-    damageResVector.push_back(DamageTypes::None);
-}
-
-void StatBlock::RemoveDamageRes(DamageTypes removedDamageType)
-{
-    int position = 0;
-    for (int i = 0; i < size(damageResVector); i++, position++)
-    {
-        if (removedDamageType == damageResVector[i])
-        {
-            damageResVector.erase(position);
-            break;
-        }
-    }
-}
-

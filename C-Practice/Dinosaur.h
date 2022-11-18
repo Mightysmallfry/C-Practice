@@ -4,21 +4,15 @@
 
 
 class Dinosaur :
-    public Creature, public Attack
+    public Creature
 {
 public:
     Dinosaur()
-        : Creature("Triceratops", 7, 5, 10, 0) {
-        InitAttacks();
-    }
+        : Creature("Base Dinosaur", 7, 5, 10, 0) {}
 
     Dinosaur(const std::string& name, const int strength, const int dexterity, const int constitution, const int charisma)
-        : Creature(name, strength, dexterity, constitution, charisma) {
-        InitAttacks();
-    }
+        : Creature(name, strength, dexterity, constitution, charisma) {}
 
-    virtual void InitAttacks();
-    virtual void InitDamageRes();
 
 
     Attack GetAttackAttributes(AttackActions attack);

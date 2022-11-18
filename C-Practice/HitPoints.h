@@ -3,6 +3,7 @@
 #include "Utilities.h"
 #include "Attack.h"
 #include "StatBlock.h"
+#include "ElementalAffinity.h"
 
 class HitPoints
 {
@@ -39,6 +40,8 @@ public:
 
 	//TODO: Update TakeDamage to handle resistences
 	void TakeDamage(Attack& attack);
+
+	//TODO: Make a ToStringHitPoints() function that prints all of the Hp stats
 
 
 private:

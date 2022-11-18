@@ -14,20 +14,22 @@ public:
 	virtual Attack GetAttackAttributes(AttackActions attack); // compares input to array of available attacks
 	virtual void AttacksToString();
 
-	std::vector<Attack> attackVector;
-	
 	AttackActions GetAttackName();
 	std::string GetAttackStrName();
 	DamageTypes GetDamageType();
 	int GetAttackDamageValue(AttackActions attack); 
 	int GetAttackTargetNumber(AttackActions attack);
 
+
+	//TODO: Think about a ToStringAttacks() function that prints the attacks of the creature
+
+	std::vector<Attack> attackVector;
 private:
 	std::string name{};
 	AttackActions attack_name{ AttackActions::None };
 	DamageTypes damage_type{ DamageTypes::None };
 	int damage_value{ 0 };
 	int target_number{ 0 };
-
+	int cooldown{ 0 };
 };
 

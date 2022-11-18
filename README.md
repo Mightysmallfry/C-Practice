@@ -42,8 +42,22 @@ Basic Stats
 - Dexterity - For Defense, who moves first, special attacks
 - Constitution - For Hit points and blocking
 - Charisma - For Fear, debuffs, persuassion
+
 Advanced Stats
-- Arcane - For magic and elemental attacks
-- Elemental Affinity - per each element the creature could have better affinity. (opens opportunity to an item evening out the affinity then)
-- Resistances - halves the damage of matching attacks
-- Immunities - sets the damage taken from matching attacks to 0
+- Arcane - For magic and elemental attacks, base damage, can be increased like strength etc.
+
+- Elemental Affinity - point buy system - repeated use level ups - Specific value for each element
+  - Resistances - reward for certain level of affinity - halves the damage of matching attacks
+  
+- Elemental attacks that are obtained after evolving dinosaur - have a cooldown
+- Support actions - Add armor or magic force to allies.
+- Elemental Resistances
+
+## items:
+- Active, Passive, Consumable items
+  - Active can use them multiple times in combat with cooldowns
+  - Passives are always active
+  - Consumables vanish after usage
+
+## Current Item Ideas:
+- Gem of Torvorex - increases affinity for all elements by Arcane.

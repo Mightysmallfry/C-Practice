@@ -44,7 +44,7 @@ Basic Stats
 - Charisma - For Fear, debuffs, persuassion
 
 Advanced Stats
-- Arcane - For magic and elemental attacks, base damage, can be increased like strength etc.
+- Arcana - For magic and elemental attacks, base damage, can be increased like strength etc.
 
 - Elemental Affinity - point buy system - repeated use level ups - Specific value for each element
   - Resistances - reward for certain level of affinity (10) - halves the damage of matching attacks
@@ -71,6 +71,10 @@ Advanced Stats
 - Steggosaurus  - Slashing and Support/Buffs
 - Anklysaurus   - Fire, Bludgeoning and Offense/Defense
 - Velociraptor  - Lightning and Mobility
+
+## Buffs/Debuffs
+- Armored Offense - Add Constitution to Attack Damage while active
+- Cure - Removes poisoned status and grants small amount of healing
 
 ## Current Item Ideas:
 - Gem of Torvorex - Increases affinity for all elements by Arcane.

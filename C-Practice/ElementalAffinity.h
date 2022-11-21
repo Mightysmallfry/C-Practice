@@ -12,7 +12,7 @@ public:
 
 	ElementalAffinity(DamageTypes element, bool has_affinity)
 		: EAelement(element), hasAffinity(has_affinity),
-		Resistances(element, has_affinity) 
+			Resistances(element, has_affinity) 
 	{
 		SetAffinityStrName(element);
 	};

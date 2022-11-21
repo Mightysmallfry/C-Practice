@@ -10,16 +10,21 @@ public:
     Triceratops() 
         : Dinosaur("Triceratops", 7, 5, 10, 0, 0) {
         InitAttacks();
+        InitElementalAffinity();
     }
 
     Triceratops(const std::string& name, const int strength, const int dexterity, const int constitution, const int charisma, const int arcana)
-        : Dinosaur(name, strength, dexterity, constitution, charisma, arcana) {
+        : Dinosaur(name, strength, dexterity, constitution, charisma, arcana)
+    {
         InitAttacks(); 
+        InitElementalAffinity();
     }
 
     //Initializers
     void InitAttacks(); //Adds the additional attacks that are specific to this creature
-    void InitElementalAffinity(); 
+    void InitElementalAffinity();
+    
+
 
     //Gameloop||Runtime
     //void Update(Triceratops& self);

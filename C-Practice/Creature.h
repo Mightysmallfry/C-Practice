@@ -18,7 +18,7 @@ public:
 
 	virtual void InitAttacks();
 	virtual void InitElementalAffinity();
-
+	virtual void InitHitPoints();
 
 	//Game Needs to Know
 	std::string GetName() const;
@@ -35,10 +35,10 @@ public:
 	inline int GetArConst() { return ARConst; };
 	inline int GetMfConst() { return MFConst; };
 
-	//virtual in case dinosaurs/velociraptors dexterity instead of strength
+	//TODO: change the Calc Functions to return ints
 	virtual void CalcHpMaximum(int constitution); // HPmax = Constitution * 10
-	virtual void CalcArmorMaximum(int strength); // ARmax = Strength * 2 || Dexterity * 2
-	virtual void CalcMagicForceMaximum(int arcane); // new stat MFmax = magic * 2
+	virtual void CalcArmorMaximum(int strengthOrDexterity); // ARmax = Strength * 2 || Dexterity * 2
+	virtual void CalcMagicForceMaximum(int arcana); // new stat MFmax = magic * 2
 
 
 	//TODO: Refactor Inventory System.

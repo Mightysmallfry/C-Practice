@@ -94,6 +94,7 @@ void HitPoints::TakeDamage(Attack& attack) //Possible future bug with negative d
 	int newArmor = 0;
 	int newMagicForce = 0;
 	
+	
 	if (GetArmorCurrent() != 0)
 	{
 		for (int i = 0; i < size(PhysicalDamage); i++)

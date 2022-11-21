@@ -64,6 +64,8 @@ inline int GetScreenHeight() {
 
 //==================================== Creature Utilities
 
+//TODO: Turn utilities into a class, make others inherit, protect and reduce vector multiples
+
 enum class AttackActions { // Has to contain all attack actions available to creatures
 	None,
     AttackTail,

@@ -9,10 +9,19 @@ void Creature::InitAttacks()
 
 void Creature::InitElementalAffinity()
 {
-    ElementalAffinity None(DamageTypes::None, false, 1);
+    ElementalAffinity None(DamageTypes::None, false);
 
     elementalAffVector.push_back(None);
 }
+
+
+void Creature::InitHitPoints()
+{
+    CalcHpMaximum();
+    CalcArmorMaximum();
+    CalcMagicForceMaximum();
+}
+
 
 std::string Creature::GetName() const
 {

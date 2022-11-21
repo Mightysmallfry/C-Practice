@@ -38,7 +38,7 @@ public:
 	void SetIsDead(bool is_dead);
 
 
-	//TODO: Update TakeDamage to handle resistences
+	//TODO: Move to Creature and Update TakeDamage to handle resistences 
 	void TakeDamage(Attack& attack);
 
 	//TODO: Make a ToStringHitPoints() function that prints all of the Hp stats

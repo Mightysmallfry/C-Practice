@@ -18,6 +18,11 @@ public:
     Attack GetAttackAttributes(AttackActions attack);
     void AttacksToString();
 
+    void CalcHpMaximum(int constitution) override;
+    void CalcArmorMaximum(int strengthOrDexterity) override; 
+    void CalcMagicForceMaximum(int arcana) override;
+
+
 private:
     
 

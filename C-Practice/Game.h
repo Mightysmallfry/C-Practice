@@ -12,7 +12,7 @@ protected:
 	void Setup();
 	void Input();
 	void Update();
-	void Render();
+	void Render(); 
 
 private:
 	Triceratops Tucker;

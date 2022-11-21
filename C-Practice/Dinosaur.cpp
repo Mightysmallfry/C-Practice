@@ -29,3 +29,21 @@ void Dinosaur::AttacksToString()
 		std::cout << attackVector[i].GetAttackStrName() << std::endl;
 	}
 }
+
+void Dinosaur::CalcHpMaximum(int constitution)
+{
+	int newMaxHp = constitution * GetHpConst();
+	SetHpMaximum(newMaxHp);
+}
+
+void Dinosaur::CalcArmorMaximum(int strengthOrDexterity)
+{
+	int newArmorMax = strengthOrDexterity * GetArConst();
+	SetArmorMaximum(newArmorMax);
+}
+
+void Dinosaur::CalcMagicForceMaximum(int arcana)
+{
+	int newMagicForceMax = arcana * GetMfConst();
+	SetMagicForceMaximum(newMagicForceMax);
+}

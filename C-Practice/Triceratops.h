@@ -21,11 +21,9 @@ public:
     }
 
     //Initializers
-    void InitAttacks(); //Adds the additional attacks that are specific to this creature
+    void InitAttacks(); 
     void InitElementalAffinity();
     
-
-
     //Gameloop||Runtime
     //void Update(Triceratops& self);
 

@@ -12,14 +12,14 @@ public:
 	virtual void InitAttacks();
 	virtual void AddAttack(AttackActions attack) ; // Adds the input action to the array of available attacks
 	virtual Attack GetAttackAttributes(AttackActions attack); // compares input to array of available attacks
-	virtual void AttacksToString();
+	
 
 	AttackActions GetAttackName();
 	std::string GetAttackStrName();
 	DamageTypes GetDamageType();
 	int GetAttackDamageValue(AttackActions attack); 
 	int GetAttackTargetNumber(AttackActions attack);
-
+	int GetAttackCooldown();
 
 	//TODO: Think about a ToStringAttacks() function that prints the attacks of the creature
 

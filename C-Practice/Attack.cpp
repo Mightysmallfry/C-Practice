@@ -11,8 +11,6 @@ Attack Attack::GetAttackAttributes(AttackActions attack)
 	return Attack();
 }
 
-void Attack::AttacksToString() {}
-
 AttackActions Attack::GetAttackName()
 {
 	return attack_name;
@@ -66,4 +64,9 @@ int Attack::GetAttackTargetNumber(AttackActions attack)
 
 
 	return ret_target_num;
+}
+
+int Attack::GetAttackCooldown()
+{
+	return cooldown;
 }

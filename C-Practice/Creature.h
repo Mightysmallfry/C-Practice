@@ -15,20 +15,16 @@ public:
 		: StatBlock(strength, dexterity, constitution, charisma, arcana) {}
 
 	//Initializers
-
 	virtual void InitAttacks();
 	virtual void InitElementalAffinity();
 	virtual void InitHitPoints();
+
 
 	//Game Needs to Know
 	std::string GetName() const;
 	virtual void Update() = 0;
 	inline bool GetIsSelected() { return isSelected; };
 	inline void SetIsSelected(bool is_selected) { isSelected = is_selected; };
-
-
-	//TODO: Refactor Stats into a class
-	//Need to work on Advanced Stats
 
 
 	inline int GetHpConst() { return HPConst; };
@@ -41,9 +37,11 @@ public:
 	virtual void CalcMagicForceMaximum(int arcana); // new stat MFmax = magic * 2
 
 
+	//Combat Related Things
+	void TakeDamage(Attack& attack);
+
 	//TODO: Refactor Inventory System.
-	int GetInventorySize(int strength); //don't think I want static, each enemy (and npc) has their own inventory that the player can take from.
-	int GetMaxWeight(int strength, int constitution);
+
 
 
 private: 

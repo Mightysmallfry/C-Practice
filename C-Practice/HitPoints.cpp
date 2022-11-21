@@ -1,17 +1,5 @@
 #include "HitPoints.h"
 
-std::vector<DamageTypes> PhysicalDamage = {
-	DamageTypes::Slashing,
-	DamageTypes::Piercing,
-	DamageTypes::Bludgeoning
-};
-
-std::vector<DamageTypes> MagicalDamage = {
-	DamageTypes::Fire,
-	DamageTypes::Cold,
-	DamageTypes::Lightning
-};
-
 
 int HitPoints::GetHpCurrent()
 {
@@ -85,55 +73,4 @@ void HitPoints::SetMagicForceMaximum(int newMaximumMagicForce)
 void HitPoints::SetIsDead(bool is_dead)
 {
 	isDead = is_dead;
-}
-
-void HitPoints::TakeDamage(Attack& attack) //Possible future bug with negative damage.
-{
-	int newHitPoints = GetHpCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
-	int HpDamage = 0;
-	int newArmor = 0;
-	int newMagicForce = 0;
-	
-	
-	if (GetArmorCurrent() != 0)
-	{
-		for (int i = 0; i < size(PhysicalDamage); i++)
-		{
-			if (attack.GetDamageType() == PhysicalDamage[i])
-			{
-				if (GetArmorCurrent() < attack.GetAttackDamageValue(attack.GetAttackName()))
-				{
-					HpDamage = attack.GetAttackDamageValue(attack.GetAttackName()) - GetArmorCurrent();
-				}
-				else {
-					HpDamage = 0;
-					newArmor = GetArmorCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
-					SetArmorCurrent(newArmor);
-				}
-			}
-		}
-	}
-
-	if (GetMagicForceCurrent() != 0)
-	{
-
-		for (int i = 0; i < size(MagicalDamage); i++)
-		{
-			if (attack.GetDamageType() == MagicalDamage[i])
-			{
-				if (GetMagicForceCurrent() < attack.GetAttackDamageValue(attack.GetAttackName()))
-				{
-					HpDamage = attack.GetAttackDamageValue(attack.GetAttackName()) - GetMagicForceCurrent();
-
-				}
-				else {
-					HpDamage = 0;
-					newMagicForce = GetMagicForceCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
-					SetMagicForceCurrent(newMagicForce);
-				}
-			}
-		}
-	}
-
-	SetHpCurrent(newHitPoints);
 }

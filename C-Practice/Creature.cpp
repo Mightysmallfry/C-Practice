@@ -1,5 +1,20 @@
 #include "Creature.h"
 
+
+std::vector<DamageTypes> PhysicalDamage = {
+	DamageTypes::Slashing,
+	DamageTypes::Piercing,
+	DamageTypes::Bludgeoning
+};
+
+std::vector<DamageTypes> MagicalDamage = {
+	DamageTypes::Fire,
+	DamageTypes::Cold,
+	DamageTypes::Lightning
+};
+
+
+
 void Creature::InitAttacks()
 {
     Attack BaseAttack("Base Attack", AttackActions::None, DamageTypes::None, 0, 0);
@@ -17,9 +32,9 @@ void Creature::InitElementalAffinity()
 
 void Creature::InitHitPoints()
 {
-    CalcHpMaximum();
-    CalcArmorMaximum();
-    CalcMagicForceMaximum();
+    CalcHpMaximum(GetConstitution());
+    CalcArmorMaximum(GetStrength());
+    CalcMagicForceMaximum(GetArcana());
 }
 
 
@@ -46,17 +61,56 @@ void Creature::CalcMagicForceMaximum(int arcane)
     SetMagicForceMaximum(newMfMax);
 }
 
-int Creature::GetInventorySize(const int strength)
+
+
+
+void Creature::TakeDamage(Attack& attack) //Possible future bug with negative damage.
 {
-    int inventory_size = 1 + strength;
-    return inventory_size;
+	int newHitPoints = GetHpCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
+	int HpDamage = 0;
+	int newArmor = 0;
+	int newMagicForce = 0;
+
+
+	if (GetArmorCurrent() != 0)
+	{
+		for (int i = 0; i < size(PhysicalDamage); i++)
+		{
+			if (attack.GetDamageType() == PhysicalDamage[i])
+			{
+				if (GetArmorCurrent() < attack.GetAttackDamageValue(attack.GetAttackName()))
+				{
+					HpDamage = attack.GetAttackDamageValue(attack.GetAttackName()) - GetArmorCurrent();
+				}
+				else {
+					HpDamage = 0;
+					newArmor = GetArmorCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
+					SetArmorCurrent(newArmor);
+				}
+			}
+		}
+	}
+
+	if (GetMagicForceCurrent() != 0)
+	{
+
+		for (int i = 0; i < size(MagicalDamage); i++)
+		{
+			if (attack.GetDamageType() == MagicalDamage[i])
+			{
+				if (GetMagicForceCurrent() < attack.GetAttackDamageValue(attack.GetAttackName()))
+				{
+					HpDamage = attack.GetAttackDamageValue(attack.GetAttackName()) - GetMagicForceCurrent();
+
+				}
+				else {
+					HpDamage = 0;
+					newMagicForce = GetMagicForceCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
+					SetMagicForceCurrent(newMagicForce);
+				}
+			}
+		}
+	}
+
+	SetHpCurrent(newHitPoints);
 }
-
-int Creature::GetMaxWeight(const int strength, const int constitution)
-{
-    int weight_constant = strength * constitution;
-    int max_weight = 5 + weight_constant;   
-    return max_weight;
-}
-
-

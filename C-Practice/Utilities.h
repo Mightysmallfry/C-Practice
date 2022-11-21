@@ -95,3 +95,19 @@ const std::string DamageTypeStrNames[] =
 	"Cold",
 	"Lightning"
 };
+
+enum class StatusTypes {
+	None,
+	Burning,
+	Slowed,
+	Frozen,
+	Jolted
+};
+
+enum class BuffTypes {
+	None,
+	Attack,
+	Health,
+	Armor,
+	MagicForce
+};

@@ -47,11 +47,17 @@ Advanced Stats
 - Arcane - For magic and elemental attacks, base damage, can be increased like strength etc.
 
 - Elemental Affinity - point buy system - repeated use level ups - Specific value for each element
-  - Resistances - reward for certain level of affinity - halves the damage of matching attacks
+  - Resistances - reward for certain level of affinity (10) - halves the damage of matching attacks
   
 - Elemental attacks that are obtained after evolving dinosaur - have a cooldown
 - Support actions - Add armor or magic force to allies.
 - Elemental Resistances
+
+## Elements and Focus
+- Cold - Crowd Control and Debuffs
+- Fire - Damage and Buffs
+- Lightning - Damage and Power
+
 
 ## items:
 - Active, Passive, Consumable items
@@ -59,5 +65,13 @@ Advanced Stats
   - Passives are always active
   - Consumables vanish after usage
 
+## Dinosaurs and Focus
+- Triceratops   - Ice, Piercing and Defense/debuffs
+- T-rex         - Lightning, Piercing and Offense 
+- Steggosaurus  - Slashing and Support/Buffs
+- Anklysaurus   - Fire, Bludgeoning and Offense/Defense
+- Velociraptor  - Lightning and Mobility
+
 ## Current Item Ideas:
-- Gem of Torvorex - increases affinity for all elements by Arcane.
+- Gem of Torvorex - Increases affinity for all elements by Arcane.
+- Stone of Eons - Increases constitution by 2

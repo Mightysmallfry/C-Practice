@@ -27,9 +27,11 @@ The base class for all creatures, ally or enemy
 
 ## Attack:
 - Attack Name
+- Attack Type
 - Damage Type
 - Damage Value
 - Number of Targets
+- Apply Status Effect
 
 ## HitPoints:
 - Hitpoints

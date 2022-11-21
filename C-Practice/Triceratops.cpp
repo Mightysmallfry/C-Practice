@@ -21,14 +21,28 @@ void Triceratops::InitElementalAffinity()
 }
 
 
-void Triceratops::Update(Triceratops& self)
+//void Triceratops::Update(Triceratops& self)
+//{
+//	if (self.GetIsDead() != false)
+//	{
+//		//~Triceratops(); //TODO: Look into Destructors for Triceratops during Update()
+//	}
+//
+//	if (self.GetIsSelected() != false)
+//	{
+//		//call display.stat function
+//	}
+//
+//}
+
+void Triceratops::Update()
 {
-	if (self.GetIsDead() != false)
+	if (GetIsDead() != false)
 	{
 		//~Triceratops(); //TODO: Look into Destructors for Triceratops during Update()
 	}
 
-	if (self.GetIsSelected() != false)
+	if (GetIsSelected() != false)
 	{
 		//call display.stat function
 	}

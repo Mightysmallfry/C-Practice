@@ -83,18 +83,6 @@ enum class DamageTypes { // Has to contain all damage types available to creatur
 	Lightning
 };
 
-std::vector<DamageTypes> PhysicalDamage = { 
-	DamageTypes::Slashing, 
-	DamageTypes::Piercing, 
-	DamageTypes::Bludgeoning
-};
-
-std::vector<DamageTypes> MagicalDamage = { 
-	DamageTypes::Fire,
-	DamageTypes::Cold,
-	DamageTypes::Lightning
-};
-
 const std::string DamageTypeStrNames[] =
 {
 	"None",

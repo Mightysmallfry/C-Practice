@@ -2,7 +2,7 @@
 
 void ElementalAffinity::SetAffinityStrName(DamageTypes element)
 {
-	affinityName = DamageTypeStrNames[element];
+	affinityName = DamageTypeStrNames[static_cast<int>(element)];
 }
 
 void ElementalAffinity::SetElementalAffinity(int new_value)

@@ -91,8 +91,6 @@ int main()
 
     
     Game game;
-    game.Run(true);
-
-    
+    return game.Run();
 }
 

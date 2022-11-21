@@ -3,7 +3,7 @@
 
 void Resistances::SetResistanceStrName(DamageTypes damage_type)
 {
-	resistanceName = DamageTypeStrNames[damage_type];
+	resistanceName = DamageTypeStrNames[static_cast<int>(damage_type)];
 }
 
 bool Resistances::GetIsResistant(int elemental_level)

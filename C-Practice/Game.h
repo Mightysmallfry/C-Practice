@@ -1,16 +1,23 @@
 #pragma once
 
 #include "Utilities.h"
+#include "Triceratops.h"
 
 class Game
 {
 public:
-	Game(){}
+	int Run();
 
-	void Run(bool is_running);
-	bool Update(bool is_running);
+protected:
+	void Setup();
+	void Input();
+	void Update();
+	void Render();
 
 private:
-	bool isRunning { true };
+	Triceratops Tucker;
+
+private:
+	bool quit{ false };
 };
 

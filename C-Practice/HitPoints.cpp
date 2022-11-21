@@ -1,5 +1,18 @@
 #include "HitPoints.h"
 
+std::vector<DamageTypes> PhysicalDamage = {
+	DamageTypes::Slashing,
+	DamageTypes::Piercing,
+	DamageTypes::Bludgeoning
+};
+
+std::vector<DamageTypes> MagicalDamage = {
+	DamageTypes::Fire,
+	DamageTypes::Cold,
+	DamageTypes::Lightning
+};
+
+
 int HitPoints::GetHpCurrent()
 {
 	return currentHitpoints;

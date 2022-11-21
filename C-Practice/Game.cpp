@@ -1,37 +1,40 @@
 #include "Game.h"
 #include "Triceratops.h"
 
-void Game::Run(bool is_running)
+
+int Game::Run()
 {
-
-
-	// ================================ Initialize Variables
-
-	Triceratops Tucker;
-	//std::cout << Tucker.GetAttackDamageValue(AttackActions::AttackStomp);
-	Tucker.AttacksToString();
-
-	// ================================ Update game state
-
-
-	while (is_running)
-	{
-		is_running = Update(is_running);
-
-
-
-
-		if (!is_running)
-		{
-			return;
-		}
-	}
+    while (!quit)
+    {
+        Input();
+        Update();
+        Render();
+    }
+    return EXIT_SUCCESS;
 }
 
-bool Game::Update(bool is_running)
+void Game::Setup()
 {
+    // Setup/initialize the game state/variables
+    // ================================ Initialize Variables
 
-	is_running = false;
 
-	return is_running;
 }
+
+void Game::Input()
+{
+    // Get input from the user
+}
+
+void Game::Update()
+{
+    // Update game state
+    //std::cout << Tucker.GetAttackDamageValue(AttackActions::AttackStomp);
+    Tucker.AttacksToString();
+}
+
+void Game::Render()
+{
+    // Update the screen
+}
+

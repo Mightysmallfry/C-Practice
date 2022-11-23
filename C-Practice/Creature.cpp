@@ -17,9 +17,9 @@ std::vector<DamageTypes> MagicalDamage = {
 
 void Creature::InitAttacks()
 {
-    Attack BaseAttack("Base Attack", AttackActions::None, DamageTypes::None, 0, 0);
+    Attack BaseAttack("Base Attack", AttackActions::None, DamageTypes::None, false, 0, 0);
 
-    attackVector.push_back(BaseAttack);
+	attackVector.push_back(BaseAttack);
 }
 
 void Creature::InitElementalAffinity()
@@ -64,9 +64,26 @@ void Creature::CalcMagicForceMaximum(int arcane)
 
 
 
-void Creature::TakeDamage(Attack& attack) //Possible future bug with negative damage.
+void Creature::TakeDamage(Attack& incoming_attack) //Possible future bug with negative damage.
 {
-	int newHitPoints = GetHpCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
+	
+	bool validAttack = true;
+	for (int i = 0; i < size(attackVector); i++)
+	{
+		if (incoming_attack.GetAttackStrName() != attackVector[i].GetAttackStrName())
+		{
+			validAttack = false;
+		}
+	}
+
+	if (!validAttack)
+	{
+		std::cout << "Not a valid Attack, No damage taken, Location: Creatre::TakeDamage" << std::endl;
+		return;
+	}
+
+
+	int newHitPoints = GetHpCurrent() - incoming_attack.GetAttackDamageValue();
 	int HpDamage = 0;
 	int newArmor = 0;
 	int newMagicForce = 0;
@@ -76,15 +93,15 @@ void Creature::TakeDamage(Attack& attack) //Possible future bug with negative da
 	{
 		for (int i = 0; i < size(PhysicalDamage); i++)
 		{
-			if (attack.GetDamageType() == PhysicalDamage[i])
+			if (incoming_attack.GetDamageType() == PhysicalDamage[i])
 			{
-				if (GetArmorCurrent() < attack.GetAttackDamageValue(attack.GetAttackName()))
+				if (GetArmorCurrent() < incoming_attack.GetAttackDamageValue())
 				{
-					HpDamage = attack.GetAttackDamageValue(attack.GetAttackName()) - GetArmorCurrent();
+					HpDamage = incoming_attack.GetAttackDamageValue() - GetArmorCurrent();
 				}
 				else {
 					HpDamage = 0;
-					newArmor = GetArmorCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
+					newArmor = GetArmorCurrent() - incoming_attack.GetAttackDamageValue();
 					SetArmorCurrent(newArmor);
 				}
 			}
@@ -96,16 +113,16 @@ void Creature::TakeDamage(Attack& attack) //Possible future bug with negative da
 
 		for (int i = 0; i < size(MagicalDamage); i++)
 		{
-			if (attack.GetDamageType() == MagicalDamage[i])
+			if (incoming_attack.GetDamageType() == MagicalDamage[i])
 			{
-				if (GetMagicForceCurrent() < attack.GetAttackDamageValue(attack.GetAttackName()))
+				if (GetMagicForceCurrent() < incoming_attack.GetAttackDamageValue())
 				{
-					HpDamage = attack.GetAttackDamageValue(attack.GetAttackName()) - GetMagicForceCurrent();
+					HpDamage = incoming_attack.GetAttackDamageValue() - GetMagicForceCurrent();
 
 				}
 				else {
 					HpDamage = 0;
-					newMagicForce = GetMagicForceCurrent() - attack.GetAttackDamageValue(attack.GetAttackName());
+					newMagicForce = GetMagicForceCurrent() - incoming_attack.GetAttackDamageValue();
 					SetMagicForceCurrent(newMagicForce);
 				}
 			}
@@ -114,3 +131,25 @@ void Creature::TakeDamage(Attack& attack) //Possible future bug with negative da
 
 	SetHpCurrent(newHitPoints);
 }
+
+Attack Creature::GetAttackAttributes(std::string attack_str_name)
+{
+	Attack retAttack;
+	bool validAttack = false;
+	for (int i = 0; i < size(attackVector); i++)
+	{
+		validAttack = false;
+		if (attack_str_name == attackVector[i].GetAttackStrName())
+		{
+			validAttack = true;
+			retAttack = attackVector[i];
+		}
+
+		if (i == size(attackVector) && validAttack == false)
+		{
+			std::cout << "No attack found, location: Creature, GetAttackAttributes" << std::endl;
+		}
+	}
+	return retAttack;
+}
+

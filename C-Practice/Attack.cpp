@@ -1,72 +1,67 @@
 #include "Attack.h"
 
-void Attack::InitAttacks() {}
-
-void Attack::AddAttack(AttackActions attack)
-{
-}
-
-Attack Attack::GetAttackAttributes(AttackActions attack)
-{
-	return Attack();
-}
 
 AttackActions Attack::GetAttackName()
 {
-	return attack_name;
+	return attackName;
 }
 
 std::string Attack::GetAttackStrName()
 {
-	return name;
+	return stringName;
 }
 
 DamageTypes Attack::GetDamageType()
 {
-	return damage_type;
+	return damageType;
 }
 
-int Attack::GetAttackDamageValue(AttackActions attack)
+int Attack::GetAttackDamageValue()
 {
-	int ret_damage = -1;
-
-	for (int i = 0; i < size(attackVector); i++)
-	{
-		if (attack == attackVector[i].attack_name) {
-			ret_damage = attackVector[i].damage_value;
-		}
-	}
-	
-	if (ret_damage == -1)
-	{
-		std::cout << "Possible error in Attack::GetAttackDamageValue" << std::endl;
-	}
-
-
-	return ret_damage;
+	return damageValue;
 }
 
-int Attack::GetAttackTargetNumber(AttackActions attack)
+int Attack::GetAttackTargetNumber()
 {
-	int ret_target_num = -1;
+	return targetNumber;
+}
 
-	for (int i = 0; i < size(attackVector); i++)
-	{
-		if (attack == attackVector[i].attack_name) {
-			ret_target_num = attackVector[i].target_number;
-		}
-	}
-
-	if (ret_target_num == -1)
-	{
-		std::cout << "Possible error in Attack::GetAttackTargetNumber" << std::endl;
-	}
-
-
-	return ret_target_num;
+int Attack::GetAttackDuration()
+{
+	return duration;
 }
 
 int Attack::GetAttackCooldown()
 {
 	return cooldown;
+}
+
+bool Attack::GetAppliesStatus()
+{
+	return appliesStatus;
+}
+
+void Attack::SetDamageValue(int new_damage_value)
+{
+	damageValue = new_damage_value;
+}
+
+void Attack::SetDamageType(DamageTypes new_damage_type)
+{
+	damageType = new_damage_type;
+}
+
+void Attack::SetDuration(int new_duration)
+{
+	duration = new_duration;
+}
+
+void Attack::SetTargetNumber(int new_target_number)
+{
+	targetNumber = new_target_number;
+}
+
+void Attack::SetCooldown(int new_cooldown)
+{
+	cooldown = new_cooldown;
 }

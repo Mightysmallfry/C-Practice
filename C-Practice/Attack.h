@@ -6,30 +6,57 @@ class Attack
 {
 public:
 	Attack() {}
-	Attack(const std::string aName, AttackActions attackName, DamageTypes damageType, int damageVal, int targetNum)
-		: name(aName), attack_name(attackName), damage_type(damageType), damage_value(damageVal), target_number(targetNum) {}
 
-	virtual void InitAttacks();
-	virtual void AddAttack(AttackActions attack) ; // Adds the input action to the array of available attacks
-	virtual Attack GetAttackAttributes(AttackActions attack); // compares input to array of available attacks
-	
+
+	Attack(const std::string aName, AttackActions attack_name, DamageTypes damage_type, int damage_val, int target_num)
+		: stringName(aName), attackName(attack_name), damageType(damage_type), damageValue(damage_val), targetNumber(target_num) {}
+
+	Attack(const std::string aName, AttackActions attack_name, DamageTypes damage_type, bool applies_status, int damage_val, int target_num)
+		: stringName(aName), attackName(attack_name), damageType(damage_type), appliesStatus(applies_status), damageValue(damage_val), targetNumber(target_num) {}
+
+
+	// Most important things to know about an attack
+	// String Name
+	// Attack_name
+	// Damage_Type
+	// Applies_Status // does it even apply a status
+	// Status_Type // what kind of status does it apply, burning etc.
+
+
+
+
 
 	AttackActions GetAttackName();
 	std::string GetAttackStrName();
 	DamageTypes GetDamageType();
-	int GetAttackDamageValue(AttackActions attack); 
-	int GetAttackTargetNumber(AttackActions attack);
+	int GetAttackDamageValue(); 
+	int GetAttackTargetNumber();
+	int GetAttackDuration();
 	int GetAttackCooldown();
 
-	//TODO: Think about a ToStringAttacks() function that prints the attacks of the creature
+	bool GetAppliesStatus();
 
-	std::vector<Attack> attackVector;
+
+
+	void SetDamageValue(int new_damage_value);
+	void SetDamageType(DamageTypes new_damage_type);
+	void SetDuration(int new_duration);
+	void SetTargetNumber(int new_target_number);
+
+	void SetCooldown(int new_cooldown); // may have to make cooldowns a class
+
+
+
 private:
-	std::string name{};
-	AttackActions attack_name{ AttackActions::None };
-	DamageTypes damage_type{ DamageTypes::None };
-	int damage_value{ 0 };
-	int target_number{ 0 };
+	std::string stringName{};
+	AttackActions attackName{ AttackActions::None };
+	DamageTypes damageType{ DamageTypes::None };
+	int damageValue{ 1 };
+	int targetNumber{ 1 };
+	int duration{ 1 }; // in turns
 	int cooldown{ 0 };
+
+	bool appliesStatus{ false };
+
 };
 

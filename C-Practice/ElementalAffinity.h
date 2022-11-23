@@ -34,7 +34,6 @@ public:
 	void SetHasAffinity(bool has_affinity);
 	
 
-	std::vector<ElementalAffinity> elementalAffVector;
 
 private:
 	std::string affinityName{ "Fire" };

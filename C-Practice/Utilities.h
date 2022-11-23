@@ -74,7 +74,6 @@ enum class AttackActions { // Has to contain all attack actions available to cre
     AttackBreath
 };
 
-
 enum class DamageTypes { // Has to contain all damage types available to creatures
 	None,
     Slashing,

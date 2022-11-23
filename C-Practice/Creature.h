@@ -7,7 +7,7 @@
 #include "Utilities.h"
 
 class Creature :
-	public HitPoints, public StatBlock, public ElementalAffinity, public Attack
+	public HitPoints, public StatBlock, public ElementalAffinity
 {
 public:
 	Creature() {};
@@ -18,6 +18,9 @@ public:
 	virtual void InitAttacks();
 	virtual void InitElementalAffinity();
 	virtual void InitHitPoints();
+
+	std::vector<Attack> attackVector; // A vector that holds all attacks available
+	std::vector<ElementalAffinity> elementalAffVector; // A Vector that holds all Elemental Affinities
 
 
 	//Game Needs to Know
@@ -38,7 +41,9 @@ public:
 
 
 	//Combat Related Things
-	void TakeDamage(Attack& attack);
+	void TakeDamage(Attack& incoming_attack);
+
+	Attack GetAttackAttributes(std::string attack_str_name); 
 
 	//TODO: Refactor Inventory System.
 
@@ -53,6 +58,12 @@ private:
 	static const int HPConst = 10;
 	static const int ARConst = 2;
 	static const int MFConst = 2;
+
+
+
+
+
+
 
 };
 

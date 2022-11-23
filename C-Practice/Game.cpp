@@ -30,7 +30,7 @@ void Game::Update()
 {
     // Update game state
     //std::cout << Tucker.GetAttackDamageValue(AttackActions::AttackStomp);
-    Tucker.AttacksToString();
+    
 }
 
 void Game::Render()

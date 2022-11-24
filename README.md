@@ -15,11 +15,20 @@ My first version of a 2d console game engine. Very bare bones and will mostly be
 - Get Screen Dimensions
 - Attack Actions - All available attacks
 - Damage types - All available damage types
-- Physical Damage - which damage types count as physical
-- Magical Damage - which damage types count as magic or elemental
+
+## inCombat (Part of Game):
+- Turns
+- 2 Parties
+- ////////// combat loop ///////////
+- Checks if either party is defeated, give out rewards if done
+- Combat does 1 dinosaur at a time, alternating teams
+- Choose action (attacks, items, run/forfeit, change combat order)
+
 
 ## Creature:
 The base class for all creatures, ally or enemy
+- Physical Damage - which damage types count as physical
+- Magical Damage - which damage types count as magic or elemental
 - Hit Points
 - Stats
 - Attack Framework

@@ -22,5 +22,25 @@ namespace Jurassic
             }
         }
     }
+
+    void Party::SetName(const std::string& party_name)
+    {
+        partyName = party_name;
+    }
+
+    std::string Party::GetName()
+    {
+        return partyName;
+    }
+
+    void Party::SetIsDefeated(bool defeated)
+    {
+        isDefeated = defeated;
+    }
+
+    bool Party::GetIsDefeated()
+    {
+        return isDefeated;
+    }
     
 }

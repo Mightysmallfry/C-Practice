@@ -14,10 +14,16 @@ namespace Jurassic
 
         void SetName(const std::string& party_name);
         std::string GetName();
+        void SetIsDefeated(bool defeated);
+        bool GetIsDefeated();
 
     private:
         std::string partyName {};
         std::vector<Creature> creatureVector;
         std::vector<Creature>::iterator it;
+
+        bool isDefeated{ false };
+
+
     };
 }

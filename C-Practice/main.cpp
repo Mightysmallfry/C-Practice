@@ -9,6 +9,7 @@
 #include "Triceratops.h"
 #include "Game.h"
 
+using namespace Jurassic;
 
 int main()
 {

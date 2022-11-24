@@ -1,28 +1,32 @@
 #include "Resistances.h"
 
 
-void Resistances::SetResistanceStrName(DamageTypes damage_type)
+namespace Jurassic
 {
-	resistanceName = DamageTypeStrNames[static_cast<int>(damage_type)];
-}
+    void Resistances::SetResistanceStrName(DamageTypes damage_type)
+    {
+        resistanceName = DamageTypeStrNames[static_cast<int>(damage_type)];
+    }
 
-bool Resistances::GetIsResistant(int elemental_level)
-{
+    bool Resistances::GetIsResistant(int elemental_level)
+    {
 
-	if (hasAffinity == true && elemental_level >= elementalLevelRequirement)
-	{
-		isResistant = true;
-	}
+        if (hasAffinity == true && elemental_level >= elementalLevelRequirement)
+        {
+            isResistant = true;
+        }
 
-	return isResistant;
-}
+        return isResistant;
+    }
 
-std::string Resistances::GetResistanceStrName()
-{
-	return resistanceName;
-}
+    std::string Resistances::GetResistanceStrName()
+    {
+        return resistanceName;
+    }
 
-void Resistances::SetDRConst(int new_drconst)
-{
-	DRConst = new_drconst;
+    void Resistances::SetDRConst(int new_drconst)
+    {
+        DRConst = new_drconst;
+    }
+    
 }

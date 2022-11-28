@@ -24,9 +24,6 @@
     <ClCompile Include="Creature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Dinosaur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -78,9 +75,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Creature.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Weapon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dinosaur.h">

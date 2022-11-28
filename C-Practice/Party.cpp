@@ -9,7 +9,14 @@ namespace Jurassic
 
     void Party::AddMember(const Creature& creature)
     {
-        creatureVector.push_back(creature);
+        
+        if (size(creatureVector) < MAX_CREATURES) {
+            creatureVector.push_back(creature);
+        }
+        else {
+            std::cout << "Maximum Creatures in the party reached" << std::endl;
+        }
+
     }
 
     void Party::DeleteMember(const std::string& creature_name)

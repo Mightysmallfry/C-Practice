@@ -1,30 +1,48 @@
 #pragma once
 
-#include <iostream>
-#include <string>
+#include "Utilities.h"
 
 namespace Jurassic
 {
     class Item
     {
     public:
-        Item() {};
-        Item(const std::string& name, const int size, const float weight);
+        Item() { NumOfItems++; };
+        Item(const std::string& name, const RarityTypes item_rarity) { NumOfItems++; };
 
-        // GETTERS
         std::string getName();
-        int getSize() const;
-        float getWeight() const;
+        RarityTypes Rarity();
+        void Rarity(RarityTypes new_rarity);
+        
+        int StrengthMod();
+        void StrengthMod(int new_mod);
+        int DexterityMod();
+        void DexterityMod(int new_mod);
+        int ConstitutionMod();
+        void ConstitutionMod(int new_mod);
+        int CharismaMod();
+        void CharismaMod(int new_mod);
+        int ArcanaMod();
+        void ArcanaMod(int new_mod);
+
+
 
         static int getNumOfItem();
         void toString();
 
     private:
-        std::string item_name{"Bucket"};
-        int item_size{2};
-        float item_weight{3};
+        std::string itemName{"Bucket"};
+        RarityTypes itemRarity{ RarityTypes::Common };
+        static int NumOfItems;
 
-        static int num_of_items;
+        int strengthModifier{ 0 };
+        int dexterityModifier{ 0 };
+        int constitutionModifier{ 0 };
+        int charismaModifier{ 0 };
+        int arcanaModifier{ 0 };
+
+
+
     };
     
 }

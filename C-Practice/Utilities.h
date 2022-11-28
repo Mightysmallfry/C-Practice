@@ -97,6 +97,15 @@ namespace Jurassic
         "Lightning"
     };
 
+    enum class RarityTypes { // Has to contain all damage types available
+        Common,
+        Uncommon,
+        Rare,
+        VeryRare,
+        Legendary,
+        Mythic
+    };
+
     enum class StatusTypes {
         None,
         Burning,

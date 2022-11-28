@@ -4,6 +4,7 @@
 #include "HitPoints.h"
 #include "StatBlock.h"
 #include "ElementalAffinity.h"
+#include "Item.h"
 #include "Utilities.h"
 
 namespace Jurassic
@@ -13,6 +14,8 @@ namespace Jurassic
     {
 
     public:
+        static constexpr size_t MAX_INVENTORY{ 6 };
+
         Creature() {};
         //Creature(std::string Name, const StatBlock& statblock);
 
@@ -54,6 +57,13 @@ namespace Jurassic
 
         //TODO: Refactor Inventory System.
 
+
+
+
+
+
+
+        std::vector<Item> inventoryVector; // A vector that holds all items 
         std::vector<Attack> attackVector; // A vector that holds all attacks available
         std::vector<ElementalAffinity> elementalAffVector; // A Vector that holds all Elemental Affinities
 

@@ -2,41 +2,82 @@
 
 namespace Jurassic
 {
-    int Item::num_of_items = 0;
+    int Item::NumOfItems = 0;
 
-    Item::Item(const std::string& name, const int size, const float weight)
-    {
-        item_name = name;
-        item_size = size;
-        item_weight = weight;
-        num_of_items++;
-    }
 
     std::string Item::getName()
     {
-        return item_name;
+        return itemName;
     }
 
-    int Item::getSize() const
+    RarityTypes Item::Rarity()
     {
-        return item_size;
+        return itemRarity;
     }
 
-    float Item::getWeight() const
+    void Item::Rarity(RarityTypes new_rarity)
     {
-        return item_weight;
+        itemRarity = new_rarity;
+    }
+
+    int Item::StrengthMod()
+    {
+        return strengthModifier;
+    }
+
+    void Item::StrengthMod(int new_mod)
+    {
+        strengthModifier = new_mod;
+    }
+
+    int Item::DexterityMod()
+    {
+        return dexterityModifier;
+    }
+
+    void Item::DexterityMod(int new_mod)
+    {
+        dexterityModifier = new_mod;
+    }
+
+    int Item::ConstitutionMod()
+    {
+        return constitutionModifier;
+    }
+
+    void Item::ConstitutionMod(int new_mod)
+    {
+        constitutionModifier = new_mod;
+    }
+
+    int Item::CharismaMod()
+    {
+        return charismaModifier;
+    }
+
+    void Item::CharismaMod(int new_mod)
+    {
+        charismaModifier = new_mod;
+    }
+
+    int Item::ArcanaMod()
+    {
+        return arcanaModifier;
+    }
+
+    void Item::ArcanaMod(int new_mod)
+    {
+        arcanaModifier = new_mod;
     }
 
     int Item::getNumOfItem()
     {
-        return num_of_items;
+        return NumOfItems;
     }
 
     void Item::toString()
     {
         std::cout << "Name: " << getName() << std::endl;
-        std::cout << "Size: " << getSize() << std::endl;
-        std::cout << "Weight: " << getWeight() << std::endl;
         std::cout << "NumOfItem: " << getNumOfItem() << std::endl;
     }
     

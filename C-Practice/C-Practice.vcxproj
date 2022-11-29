@@ -147,6 +147,7 @@
     <ClCompile Include="ElementalAffinity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HitPoints.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="ElementalAffinity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HitPoints.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Point.h" />

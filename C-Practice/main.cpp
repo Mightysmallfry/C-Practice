@@ -2,7 +2,6 @@
 #include "Utilities.h"
 
 #include "Item.h"
-#include "Weapon.h"
 #include "Creature.h"
 #include "Dinosaur.h"
 //#include "Conflict.h"

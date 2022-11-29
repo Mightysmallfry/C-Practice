@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <array>
 #include <functional>
 #include <map>
 #include <conio.h>
@@ -13,6 +14,12 @@
 
 namespace Jurassic
 {
+    // Inventory and Item Expressions and constants
+    static constexpr int INVENTORY_EMPTY_SLOT_ID{ -1 };
+    static constexpr size_t MAX_INVENTORY_SIZE{ 6 };
+
+    //
+
     inline void SetCursorPosition(int x, int y)
     {
         COORD coord;

@@ -15,9 +15,25 @@ namespace Jurassic
         return itemRarity;
     }
 
+    size_t Item::GetInventorySlotId()
+    {
+        return inventorySlotId;
+    }
+
+    void Item::SetInventorySlotId(size_t new_slot_id)
+    {
+        inventorySlotId = new_slot_id;
+    }
+
+
     void Item::Rarity(RarityTypes new_rarity)
     {
         itemRarity = new_rarity;
+    }
+
+    bool Item::GetIsUnique()
+    {
+        return isUnique;
     }
 
     int Item::StrengthMod()

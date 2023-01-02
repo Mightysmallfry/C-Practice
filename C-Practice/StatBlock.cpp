@@ -2,27 +2,52 @@
 
 namespace Jurassic
 {
-    int StatBlock::GetStrength()
+    int StatBlock::GetBaseStrength() const
+    {
+        return baseStrength;
+    }
+
+    int StatBlock::GetBaseDexterity() const
+    {
+        return baseDexterity;
+    }
+
+    int StatBlock::GetBaseConstitution() const
+    {
+        return baseConstitution;
+    }
+
+    int StatBlock::GetBaseCharisma() const
+    {
+        return baseCharisma;
+    }
+
+    int StatBlock::GetBaseArcana() const
+    {
+        return baseArcana;
+    }
+
+    int StatBlock::GetStrength() const
     {
         return strength;
     }
 
-    int StatBlock::GetDexterity()
+    int StatBlock::GetDexterity() const
     {
         return dexterity;
     }
 
-    int StatBlock::GetConstitution()
+    int StatBlock::GetConstitution() const
     {
         return constitution;
     }
 
-    int StatBlock::GetCharisma()
+    int StatBlock::GetCharisma() const
     {
         return charisma;
     }
 
-    int StatBlock::GetArcana()
+    int StatBlock::GetArcana() const
     {
         return arcana;
     }
@@ -91,5 +116,23 @@ namespace Jurassic
     {
         maximumLevel = newMaxLevel;
     }
-    
+
+    void StatBlock::ToString()
+    {
+        std::cout << "+++ STATS +++" << std::endl;
+        std::cout << "Base Strength: " << GetBaseStrength() << std::endl;
+        std::cout << "Strength: " << GetStrength() << std::endl;
+
+        std::cout << "Base Dexterity: " << GetBaseDexterity() << std::endl;
+        std::cout << "Dexterity: " << GetDexterity() << std::endl;
+
+        std::cout << "Base Constitution: " << GetBaseConstitution() << std::endl;
+        std::cout << "Constitution: " << GetConstitution() << std::endl;
+
+        std::cout << "Base Charisma: " << GetBaseCharisma() << std::endl;
+        std::cout << "Charisma: " << GetCharisma() << std::endl;
+
+        std::cout << "Base Arcana: " << GetBaseArcana() << std::endl;
+        std::cout << "Arcana: " << GetArcana() << std::endl;
+    }
 }

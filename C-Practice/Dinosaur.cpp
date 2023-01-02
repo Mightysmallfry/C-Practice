@@ -31,21 +31,27 @@ namespace Jurassic
         }
     }
 
-    void Dinosaur::CalcHpMaximum(int constitution)
+    void Dinosaur::CalcHpMaximum()
     {
-        int newMaxHp = constitution * GetHpConst();
+        int newMaxHp = GetConstitution() * GetHpConst();
         SetHpMaximum(newMaxHp);
     }
 
-    void Dinosaur::CalcArmorMaximum(int strengthOrDexterity)
+    void Dinosaur::CalcArmorMaximum(bool is_strength)
     {
-        int newArmorMax = strengthOrDexterity * GetArConst();
-        SetArmorMaximum(newArmorMax);
+        int newArMax = GetStrength() * GetArConst();
+
+        if (!is_strength)
+        {
+            int newArMax = GetDexterity() * GetArConst();
+        }
+
+        SetArmorMaximum(newArMax);
     }
 
-    void Dinosaur::CalcMagicForceMaximum(int arcana)
+    void Dinosaur::CalcMagicForceMaximum()
     {
-        int newMagicForceMax = arcana * GetMfConst();
+        int newMagicForceMax = GetArcana() * GetMfConst();
         SetMagicForceMaximum(newMagicForceMax);
     }
     

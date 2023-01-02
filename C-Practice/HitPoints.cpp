@@ -75,5 +75,16 @@ namespace Jurassic
     {
         isDead = is_dead;
     }
-    
+
+    void HitPoints::ToString()
+    {
+        std::cout << "---HitPoints Values---" << std::endl;
+        std::cout << "IsDead: " << GetIsDead() << std::endl;
+        std::cout << "HpCur: " << GetHpCurrent() << std::endl;
+        std::cout << "HpMax: " << GetHpMaximum() << std::endl;
+        std::cout << "ArmorCur: " << GetArmorCurrent() << std::endl;
+        std::cout << "ArmorMax: " << GetArmorMaximum() << std::endl;
+        std::cout << "MagicForceCur: " << GetMagicForceCurrent() << std::endl;
+        std::cout << "MagicForceMax: " << GetMagicForceMaximum() << std::endl;
+    }
 }

@@ -78,9 +78,6 @@ int main()
     //DWORD p = 2;
     //SetConsoleTextAttribute(consoleColor, p);
 
-
-
-
     //wchar_t* screen = new wchar_t[nScreenWidth * nScreenHeight];
     //HANDLE hconsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
     //SetConsoleActiveScreenBuffer(hconsole);
@@ -90,7 +87,43 @@ int main()
     //=======================================================
 
     
-    Game game;
-    return game.Run();
+    //Game game;
+    //game.Run();
+
+    //Item bucket;
+    Item knife("Knife", RarityTypes::Mythic, 10, 5, 8, 0, 0);
+    Item shovel("Shovel", RarityTypes::Legendary, 5, 0, 8, 5, 5);
+
+    Creature baseCreature;
+
+    //baseCreature.inventory.AddItem(bucket);
+    baseCreature.inventory.AddItem(knife);
+    baseCreature.inventory.AddItem(shovel);
+
+    std::cout << "SETUP - START" << std::endl;
+    baseCreature.ToString();
+    baseCreature.inventory.ToString();
+    std::cout << "SETUP - COMPLETE" << std::endl;
+
+    int count = 0;
+    bool done = false;
+    while (!done)
+    {
+        baseCreature.ToString();
+        baseCreature.inventory.ToString();
+
+        baseCreature.Update();
+
+        baseCreature.RemoveItem(shovel); //BUG Remove item does not remove the item nor apply changes to stats
+
+        baseCreature.Update();
+
+        count++;
+        if (count == 3)
+        {
+            done = true;
+        }
+    }
+
 }
 

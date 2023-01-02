@@ -4,6 +4,26 @@ namespace Jurassic
 {
     int Item::NumOfItems = 0;
 
+    Item& Item::operator=(const Item& other)
+    {
+        if (this != &other)
+        {
+            itemName = other.itemName;
+            itemRarity = other.itemRarity;
+            isUnique = other.isUnique;
+            
+
+            strengthModifier = other.strengthModifier;
+            dexterityModifier = other.dexterityModifier;
+            constitutionModifier = other.constitutionModifier;
+            charismaModifier = other.charismaModifier;
+            arcanaModifier = other.arcanaModifier;
+
+        }
+
+        return *this;
+    }
+
 
     std::string Item::getName()
     {
@@ -15,15 +35,15 @@ namespace Jurassic
         return itemRarity;
     }
 
-    size_t Item::GetInventorySlotId()
-    {
-        return inventorySlotId;
-    }
+    //size_t Item::GetInventorySlotId()
+    //{
+    //    return inventorySlotId;
+    //}
 
-    void Item::SetInventorySlotId(size_t new_slot_id)
-    {
-        inventorySlotId = new_slot_id;
-    }
+    //void Item::SetInventorySlotId(size_t new_slot_id)
+    //{
+    //    inventorySlotId = new_slot_id;
+    //}
 
 
     void Item::Rarity(RarityTypes new_rarity)
@@ -31,12 +51,22 @@ namespace Jurassic
         itemRarity = new_rarity;
     }
 
-    bool Item::GetIsUnique()
+    bool Item::IsUnique()
     {
         return isUnique;
     }
 
-    int Item::StrengthMod()
+    bool Item::IsApplied()
+    {
+        return isApplied;
+    }
+
+    void Item::IsApplied(bool is_applied)
+    {
+        isApplied = is_applied;
+    }
+
+    int Item::StrengthMod() 
     {
         return strengthModifier;
     }
@@ -85,6 +115,7 @@ namespace Jurassic
     {
         arcanaModifier = new_mod;
     }
+
 
     int Item::getNumOfItem()
     {

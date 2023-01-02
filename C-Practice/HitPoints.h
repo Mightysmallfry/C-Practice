@@ -40,10 +40,7 @@ namespace Jurassic
 
         void SetIsDead(bool is_dead);
 
-
-
-        //TODO: Make a ToStringHitPoints() function that prints all of the Hp stats
-
+        void ToString();
 
     private:
         bool isDead{ false };

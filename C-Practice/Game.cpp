@@ -18,7 +18,7 @@ namespace Jurassic
 
     void Game::Setup()
     {
-        display.ClearScreen();
+        //display.ClearScreen();
 
         // Setup/initialize the game state/variables
         // ================================ Initialize Variables
@@ -80,24 +80,27 @@ namespace Jurassic
             // if encounter enemy at map location
             // then fight or flight?
             inCombat = true;
+
+            
+
         }
         else
         {
             inCombat = turn.Next();
         }
-        // Update game state
-        //std::cout << Tucker.GetAttackDamageValue(AttackActions::AttackStomp);
     }
 
     void Game::Render()
     {
-        if (display.NeedsRefresh())
-        {
-            // Update the screen
-            display.DrawRect(Rectangle(5, 5, 10, 10));
-            display.RenderMap(map, location);
-            display.Invalidate(false);
-        }
+        //if (display.NeedsRefresh())
+        //{
+        //    // Update the screen
+        //    display.DrawRect(Rectangle(5, 5, 10, 10));
+        //    display.RenderMap(map, location);
+        //    display.Invalidate(false);
+        //}
+        
+
     }
 
     

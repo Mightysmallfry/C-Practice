@@ -18,8 +18,8 @@ namespace Jurassic
     {
         if (this != &other)
         {
-            Name = other.Name;
-            IsSelected = other.IsSelected;
+            name = other.name;
+            isSelected = other.isSelected;
         }
         return *this;
     }
@@ -40,33 +40,78 @@ namespace Jurassic
 
     void Creature::InitHitPoints()
     {
-        CalcHpMaximum(GetConstitution());
-        CalcArmorMaximum(GetStrength());
-        CalcMagicForceMaximum(GetArcana());
+        CalcHpMaximum();
+        CalcArmorMaximum(isStrengthBased_);
+        CalcMagicForceMaximum();
     }
 
-    void Creature::Update() {}
+    void Creature::Update()
+    {
+	    if (!inventory.GetIsValid())
+	    {
+            inventory.IsValid(); //Adds to updateSlots
+            
+
+            if (!inventory.updateSlots.empty())
+            {
+                for (auto& [key, item] : inventory.updateSlots)
+                {
+                    //TODO: Apply missing item Modifiers then remove from update slots and set is applied to true
+
+                    int itemStrength = item.StrengthMod();
+
+                    SetStrength(GetStrength() + itemStrength);
+                    SetDexterity(GetDexterity() + item.DexterityMod());
+                    SetConstitution(GetConstitution() + item.ConstitutionMod());
+                    SetCharisma(GetCharisma() + item.CharismaMod());
+                    SetArcana(GetArcana() + item.ArcanaMod());
+
+                    //item.IsApplied(true); //TODO: Move is applied to inventory map not update map
+                    //inventory.updateSlots.erase(key); // causes error
+                }
+                inventory.updateSlots.clear();
+
+                for (auto& [key, item] : inventory.inventorySlots)
+                {
+                    item.IsApplied(true);
+                }
+            }
+
+	        CalcHpMaximum();
+            CalcArmorMaximum(isStrengthBased_);
+            CalcMagicForceMaximum();
+            inventory.IsValid(true);
+	    }
+
+
+    }
 
     std::string Creature::GetName() const
     {
-        return Name;
+        return name;
     }
 
-    void Creature::CalcHpMaximum(int constitution)
+    void Creature::CalcHpMaximum()
     {
-        int newHpMax = constitution * GetHpConst();
+        int newHpMax = GetConstitution() * GetHpConst();
         SetHpMaximum(newHpMax);
     }
 
-    void Creature::CalcArmorMaximum(int strength)
+    void Creature::CalcArmorMaximum(bool is_strength)
     {
-        int newArMax = strength * GetArConst();
+        int newArMax = GetStrength() * GetArConst();
+
+        if (!is_strength)
+        {
+            int newArMax = GetDexterity() * GetArConst();
+        }
+
         SetArmorMaximum(newArMax);
     }
 
-    void Creature::CalcMagicForceMaximum(int arcane)
+    void Creature::CalcMagicForceMaximum()
     {
-        int newMfMax = arcane * GetMfConst();
+        int newMfMax = GetArcana() * GetMfConst();
         SetMagicForceMaximum(newMfMax);
     }
 
@@ -157,5 +202,42 @@ namespace Jurassic
             }
         }
         return retAttack;
+    }
+
+    void Creature::ToString()
+    {
+        std::cout << "Creature Name: " << GetName() << std::endl;
+        
+        std::cout << "Base Strength: " << GetBaseStrength() << std::endl;
+        std::cout << "Strength: " << GetStrength() << std::endl;
+
+        std::cout << "Base Dexterity: " << GetBaseDexterity() << std::endl;
+        std::cout << "Dexterity: " << GetDexterity() << std::endl;
+
+        std::cout << "Base Constitution: " << GetBaseConstitution() << std::endl;
+        std::cout << "Constitution: " << GetConstitution() << std::endl;
+
+        std::cout << "Base Charisma: " << GetBaseCharisma() << std::endl;
+        std::cout << "Charisma: " << GetCharisma() << std::endl;
+
+        std::cout << "Base Arcana: " << GetBaseArcana() << std::endl;
+        std::cout << "Arcana: " << GetArcana() << std::endl;
+                     
+    }
+
+
+    void Creature::RemoveItem(Item& item)
+    {
+        if (item.IsApplied())
+        {
+            SetStrength(GetStrength() - item.StrengthMod());
+            SetDexterity(GetDexterity() - item.DexterityMod());
+            SetConstitution(GetConstitution() - item.ConstitutionMod());
+            SetCharisma(GetCharisma() - item.CharismaMod());
+            SetArcana(GetArcana() - item.ArcanaMod());
+
+            item.IsApplied(false);
+            inventory.RemoveItem(item);
+        }
     }
 }

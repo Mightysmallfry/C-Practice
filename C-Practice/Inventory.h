@@ -1,7 +1,5 @@
 #pragma once
 
-
-
 #include "Utilities.h"
 
 #include "Item.h"
@@ -9,28 +7,29 @@
 
 namespace Jurassic
 {
-	class Inventory
-	{
-	public:
-		Inventory() {}
+    class Inventory
+    {
+    public:
+        Inventory() {}
 
+        bool AddItem(Item& item); // must check if item is unique before adding
+        void RemoveItem(Item& item); // checks if it is in, and if it is then removes index value
+        bool IsInInventory(Item& item); // spins through inventory checking if the item is already in the inventory
+        bool IsValid();
+        void IsValid(bool is_valid);
+        bool GetIsValid();
 
-		bool AddItem(Item& item); // must check if item is unique before adding
-		void RemoveItem(Item& item); // checks if it is in, and if it is then removes index value
+        void ToString();
 
-		bool IsInInventory(Item& item); // spins through inventory checking if the item is already in the inventory
-		bool IsSlotEmpty(size_t slot_index); // checks if the slot ID is the empy slot id
-		size_t NextEmptySlot() const;
+        void UpdateSlotPrint();
 
+        //bool IsItemUnique(Item& item); // or alone in the inventory, are the there duplicates
 
-		//bool IsItemUnique(Item& item); // or alone in the inventory, are the there duplicates
-		std::vector<size_t> FindIndicesOf(Item& item); 
+        // keys are item.getName() , values are item&
 
-
-		std::array<Item, MAX_INVENTORY_SIZE> inventoryArray; // A vector that holds all items 
-
-	private:
-
-		
-	};
+        std::unordered_map<std::string, Item> inventorySlots;
+        std::unordered_map<std::string, Item> updateSlots;
+    private:
+        bool isValid{false};
+    };
 }

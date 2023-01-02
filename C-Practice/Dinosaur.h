@@ -24,9 +24,9 @@ namespace Jurassic
         Attack GetAttackAttributes(AttackActions attack);
         void AttacksToString();
 
-        void CalcHpMaximum(int constitution) override;
-        void CalcArmorMaximum(int strengthOrDexterity) override; 
-        void CalcMagicForceMaximum(int arcana) override;
+        void CalcHpMaximum() override;
+        void CalcArmorMaximum(bool is_strength) override; 
+        void CalcMagicForceMaximum() override;
 
     private:
     };

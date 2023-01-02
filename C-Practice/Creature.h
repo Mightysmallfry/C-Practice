@@ -18,8 +18,9 @@ namespace Jurassic
         Creature() {};
         //Creature(std::string Name, const StatBlock& statblock);
 
-        Creature(std::string creature_name, int strength, int dexterity, int constitution, int charisma, int arcana)
-            : StatBlock(strength, dexterity, constitution, charisma, arcana) {}
+        Creature(std::string creature_name, int base_strength, int base_dexterity, int base_constitution, int base_charisma, int base_arcana)
+            : StatBlock(base_strength, base_dexterity, base_constitution, base_charisma, base_arcana),
+              name(creature_name) {}
 
         Creature(const Creature& other) = default;
         Creature& operator=(const Creature& other);
@@ -37,42 +38,49 @@ namespace Jurassic
 
         std::string GetName() const;
 
-        inline bool GetIsSelected() { return IsSelected; };
-        inline void SetIsSelected(const bool is_selected) { IsSelected = is_selected; };
+        inline bool GetIsSelected() { return isSelected; };
+        inline void SetIsSelected(const bool is_selected) { isSelected = is_selected; };
 
-        inline int GetHpConst() { return HPConst; };
-        inline int GetArConst() { return ARConst; };
-        inline int GetMfConst() { return MFConst; };
 
+
+        //Consts, not static for different creatures
+        inline int GetHpConst() { return HP_CONST; };
+        inline int GetArConst() { return AR_CONST; };
+        inline int GetMfConst() { return MF_CONST; };
+
+
+        
         //TODO: change the Calc Functions to return ints
-        virtual void CalcHpMaximum(int constitution); // HPmax = Constitution * 10
-        virtual void CalcArmorMaximum(int strengthOrDexterity); // ARmax = Strength * 2 || Dexterity * 2
-        virtual void CalcMagicForceMaximum(int arcana); // new stat MFmax = magic * 2
+        virtual void CalcHpMaximum(); // HPmax = Constitution * 10
+        virtual void CalcArmorMaximum(bool is_strength); // ARmax = Strength * 2 || Dexterity * 2
+        virtual void CalcMagicForceMaximum(); // new stat MFmax = magic * 2
 
-        //Combat Related Things
+        //Attack System Functions
         void TakeDamage(Attack& incoming_attack);
-
         Attack GetAttackAttributes(std::string attack_str_name);
 
-        //TODO: Refactor Inventory System.
 
+        //Display Functions
+        void ToString();
 
+        //Inventory System Data
+        void RemoveItem(Item& item);
+        Inventory inventory;
 
-
-
-
-
+        //Attack System Data
         std::vector<Attack> attackVector; // A vector that holds all attacks available
         std::vector<ElementalAffinity> elementalAffVector; // A Vector that holds all Elemental Affinities
 
     private:
-        std::string Name{ "Base Creature" };
-        bool IsSelected{ false };
+        std::string name{ "Base Creature" };
+        bool isSelected{ false };
+        bool isStrengthBased_{ true };
 
+        //TODO: refactor consts to be more safe and have easier implementation
         //may not want these to be type const in the future (thinking items)
-        static const int HPConst = 10;
-        static const int ARConst = 2;
-        static const int MFConst = 2;
+        static const int HP_CONST = 10;
+        static const int AR_CONST = 2;
+        static const int MF_CONST = 2;
     };
     
 }

@@ -29,8 +29,9 @@ namespace Jurassic
         char input;
         bool inCombat{ false };
 
-        Display display{};
-        Map map{};
-        Point location{};
+        //Display display{};
+        //Map map{};
+        //Point location{};
+
     };
 }

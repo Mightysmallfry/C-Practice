@@ -26,7 +26,7 @@ namespace Jurassic
     //{
     //  if (self.GetIsDead() != false)
     //  {
-    //      //~Triceratops(); //TODO: Look into Destructors for Triceratops during Update()
+    //      //~Triceratops(); 
     //  }
     //
     //  if (self.GetIsSelected() != false)

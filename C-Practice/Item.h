@@ -2,37 +2,55 @@
 
 #include "Utilities.h"
 
+
+
+
 namespace Jurassic
 {
     class Item
     {
     public:
-
         Item() { NumOfItems++; };
 
-        Item(const std::string& name, const RarityTypes item_rarity) { NumOfItems++; };
+
+        Item& operator=(const Item& other);
+
+
+
+        Item(const std::string& name, const RarityTypes item_rarity)
+	        :   itemName(name), itemRarity(item_rarity) { NumOfItems++; }
+
+
+        Item(const std::string& name, const RarityTypes item_rarity, int strength_mod, 
+            int dexterity_mod, int constitution_mod, int charisma_mod, int arcana_mod)
+            : itemName(name), itemRarity(item_rarity), strengthModifier(strength_mod),
+                dexterityModifier(dexterity_mod), constitutionModifier(constitution_mod),
+                charismaModifier(charisma_mod), arcanaModifier(arcana_mod)
+        { NumOfItems++; }
 
 
         static int getNumOfItem();
-        bool GetIsUnique();
-
+        bool IsUnique();
+        bool IsApplied();
+        void IsApplied(bool is_applied);
 
         std::string getName();
         RarityTypes Rarity();
         void Rarity(RarityTypes new_rarity);
-        size_t GetInventorySlotId();
-        void SetInventorySlotId(size_t new_slot_id);
 
 
-        
         int StrengthMod();
         void StrengthMod(int new_mod);
+
         int DexterityMod();
         void DexterityMod(int new_mod);
+
         int ConstitutionMod();
         void ConstitutionMod(int new_mod);
+
         int CharismaMod();
         void CharismaMod(int new_mod);
+
         int ArcanaMod();
         void ArcanaMod(int new_mod);
 
@@ -42,24 +60,17 @@ namespace Jurassic
 
     private:
         static int NumOfItems;
-        const bool isUnique{ false }; // determines if only one can be in the inventory
+        bool isUnique{ false }; // determines if only one can be in the inventory
+        bool isApplied{ false };
 
         std::string itemName{"Bucket"};
         RarityTypes itemRarity{ RarityTypes::Common };
-        size_t inventorySlotId { INVENTORY_EMPTY_SLOT_ID }; // 0-inventory size, slot number aka index number
-        int itemId { 1 }; //unique id that represents the item
-
-
-
 
         int strengthModifier{ 0 };
         int dexterityModifier{ 0 };
         int constitutionModifier{ 0 };
         int charismaModifier{ 0 };
         int arcanaModifier{ 0 };
-
-
-
     };
     
 }
